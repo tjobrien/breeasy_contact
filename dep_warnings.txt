@@ -1,0 +1,1 @@
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins!
