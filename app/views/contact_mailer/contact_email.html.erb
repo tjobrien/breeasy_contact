@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+	<title>Email</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<p>First name:  <%= @contact.first_name %></p>
+
+<p>Last name:   <%= @contact.last_name %></p>
+
+<p>Email:  <%= @contact.email %></p>
+
+<p>Company: <%= @contact.company %></p>
+
+<p>Description: <%= @contact.description %></p>
+
+<p>Twitter:  <%= @contact.twitter %></p>
+
+<p>Phone:  <%= @contact.phone %></p>
+
+<p>Interested in:<br>
+	<b>Breeasy:</b>  <%= @contact.breeasy %> <br>
+	<b>White/Private:</b>  <%= @contact.white_label %> <br>
+	<b>Internet Marketing:</b>  <%= @contact.marketing %> <br>
+	<b>Referrals:</b>  <%= @contact.referral %> <br>
+	
+<p>Contact Method:  <%= @contact.contact_method %></p>
+
+</body>
+</html>

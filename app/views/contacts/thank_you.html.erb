@@ -1,48 +1,81 @@
-<h1>Thanks!  We will get back to straight away.  In the meantime, checkout our services.</h1>
+<div id="doc2" class="yui-t1">
+	<div id="app_header">
+		<%= image_tag "small_logo_w_globe.jpg" %>
+		<!-- <div id="social_links">
+		<img src="images/facebook-24x24.jpg" alt="facebook" width="24" height="24" />
+		<img src="images/twitter-24x24.jpg" alt="twitter" width="24" height="24" />
+		<img src="images/youtube-24x24.jpg" alt="youtube" width="24" height="24" />
 
-<p id="notice"><%= notice %></p>
+		
 
-<p>What you sent us:</p>
-
-<p>
-  <b>First name:</b>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @contact.last_name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @contact.company %>
-</p>
-<p>
-  <b>Phone:</b>
-  <%= @contact.phone_number %>
-</p>
-<p>
-  <b>Twitter:</b>
-  <%= @contact.twitter %>
-</p>
-<p>Interested in:<br>
-	<b>Breeasy:</b>  <%= @contact.breeasy %> <br>
-	<b>White/Private:</b>  <%= @contact.white_label %> <br>
-	<b>Internet Marketing:</b>  <%= @contact.marketing %> <br>
-	<b>Referrals:</b>  <%= @contact.referral %> <br>
+    	</div> -->
+	</div>
 	
+   <div id="hd">
+	<%= link_to 'Home', "http://www.breeasy.com" %>
 	
-	
+   </div>
+	<div id="yui-main">
+		<div class="features">
+			<h1>Thanks!  We will get back to straight away.  In the meantime, checkout our services.</h1>
 
-<p>
-  <b>Description:</b>
-  <%= @contact.description %>
-</p>
-<p><b>Contact Method:</b>
-	<%= @contact.contact_method %></p>
+			<p id="notice"><%= notice %></p>
+
+			<p>What you sent us:</p>
+
+			<p>
+			  <b>First name:</b>
+			  <%= @contact.first_name %>
+			</p>
+
+			<p>
+			  <b>Last name:</b>
+			  <%= @contact.last_name %>
+			</p>
+
+			<p>
+			  <b>Email:</b>
+			  <%= @contact.email %>
+			</p>
+
+			<p>
+			  <b>Company:</b>
+			  <%= @contact.company %>
+			</p>
+			<p>
+			  <b>Phone:</b>
+			  <%= @contact.phone %>
+			</p>
+			<p>
+			  <b>Twitter:</b>
+			  <%= @contact.twitter %>
+			</p>
+			<p>Interested in:<br>
+				<b>Breeasy:</b>  <%= @contact.breeasy %> <br>
+				<b>White/Private:</b>  <%= @contact.white_label %> <br>
+				<b>Internet Marketing:</b>  <%= @contact.marketing %> <br>
+				<b>Referrals:</b>  <%= @contact.referral %> <br>
+			</p>
+
+			<p>
+			  <b>Description:</b>
+			  <%= @contact.description %>
+			</p>
+			<p><b>Contact Method:</b>
+				<%= @contact.contact_method %></p>
+			
+		
+			
+		</div> <!-- features -->
+	</div> <!-- yui-main -->
+
+
+
+
+
+
+
+
+</div>
+
+

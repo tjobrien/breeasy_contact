@@ -7,55 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<body>
-	<div id="doc2" class="yui-t1">
-		<div id="app_header">
-			<%= image_tag "small_logo_w_globe.jpg" %>
-			<!-- <div id="social_links">
-			<img src="images/facebook-24x24.jpg" alt="facebook" width="24" height="24" />
-			<img src="images/twitter-24x24.jpg" alt="twitter" width="24" height="24" />
-			<img src="images/youtube-24x24.jpg" alt="youtube" width="24" height="24" />
-
-			
-
-	    	</div> -->
-		</div>
-		
-	   <div id="hd">
-		<%= link_to 'Home', "http://www.breeasy.com" %>
-		
-	   </div>
-	   <div id="bd">
-	   			<div class="yui-gd">
-		    		<div class="yui-u first">
-						<h1 id='first_col'>Features</h1>
-						<h3>-To Do Lists</h3>
-						<h3>-Task Assignment and Management</h3>
-						<h3>-Events and Calendars</h3>
-						<h3>-Customer Service Incidents (CSIs)</h3>
-						<h3>-Project Management</h3>
-						<h3>-Manage Contacts and Companies</h3>
-						<h3>-Daily Digest in your Inbox</h3>
-						<h3>-Upload Files and Photos</h3>
-			    	</div>
-		    		<div class="yui-u">
-	<!-- 	    	Use Photos here  note size!	 -->
-					<%= image_tag "icon_connections.jpg", :class => 'hero' %>
-					
-					</div>
-			</div>
-
-			<div id="yui-main">
-				<div class="features">
-					<%= yield %>
-				</div> <!-- features -->
-			</div> <!-- yui-main -->
-				</div> <!-- bd -->
-	   <div id="ft"><div id='goodbye'>built by <a href="http://www.bootstraptechnology.com">BootStrap Technology Consulting</a>&nbsp; copyright &copy; 2011 - 2012			Breeasy.com</div></div>
-	</div>
 	
-
-
-
+	<%= yield %>
 </body>
 </html>
