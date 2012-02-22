@@ -1,0 +1,59 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </div>
+	<div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </div>
+	<div class="field">
+	    <%= f.label :interested_in %><br />
+	    <%= f.check_box :breeasy %> Breeasy <%= f.check_box :marketing %> Internet Specialist <%= f.check_box :white_label %> White/Private Label Opportunities
+		<%= f.check_box :referral %> Referral Program
+	  </div>
+  <div class="field">
+    <%= f.label :description, "What can we do for you?" %><br />
+    <%= f.text_area :description, :rows => 5, :cols => 80 %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_method, "How should we reach you?" %><br />
+    <%= f.radio_button :contact_method, 'email' %> Email <br>
+	<%= f.radio_button :contact_method, 'phone' %> Phone
+	<%= f.radio_button :contact_method, 'twitter' %> Twitter
+	
+    
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
