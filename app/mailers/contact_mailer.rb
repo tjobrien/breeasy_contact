@@ -1,9 +1,9 @@
 class ContactMailer < ActionMailer::Base
   
-  default :from => "tobrien@breeasy.com"
+  default :from => "admin@breeasy.com"
   
   def contact_email(contact)
       @contact = contact
-      mail(:to => "tobrien@breeasy.com", :subject => "Breeasy Contact Form Submitted")
+      mail(:to => @contact.email, :subject => "Breeasy Contact Form Submitted")
     end
 end

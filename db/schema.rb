@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221214716) do
+ActiveRecord::Schema.define(:version => 20120409230539) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120221214716) do
     t.boolean  "white_label"
     t.string   "contact_method"
     t.boolean  "referral"
+    t.boolean  "bbc"
   end
 
 end
