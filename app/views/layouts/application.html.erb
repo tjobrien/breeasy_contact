@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Breeasy - Contact Us</title>
-  <%= stylesheet_link_tag "application", "http://yui.yahooapis.com/combo?2.9.0/build/reset-fonts-grids/reset-fonts-grids.css&2.9.0/build/base/base-min.css", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title></title>
+	<%= stylesheet_link_tag "reset-fonts-grids", "base-min", "breeasy" %>
+
   <%= csrf_meta_tags %>
 </head>
+ <div id="doc2"class="yui-t7">
+<div id="app_header">
+    	<a href="http://www.breeasy.com"><img src="http://www.breeasy.com/images/communicate_manage_grow.png" alt="small business productivity platform" width="400" height="53" /></a>
+    	 	<div id="promo_links">
+    	 		<a href="http://billing.breeasy.com/users/sign_up">Invoice and Manage Cash - Free</a>
+    		</div>
+    	</div>
+	    <div id='hd'>
+		    <div id='navigation'>
+				<ol id="navlinks">
+					<li><a href="http://www.breeasy.com">Home</a></li>
+					<li><a href="http://www.breeasy.com/products/index.html">Products</a></li>
+					<li><a href="http://www.breeasy.com/plans/index.html">Plans and Pricing</a></li>
+					<li><a href="http://brze.me">Blog</a></li>
+					<li><a href="http://www.breeasy.com/articles/index.html">Articles</a></li>
+					<li><a href="http://www.breeasy.com/opportunities/index.html">Opportunities</a></li>
+					<li><a href="http://www.breeasy.com/about.html">About Breeasy</a></li>
+					<li><a href="https://breeasy.desk.com">Support Forum</a></li>
+					<li><a href="http://www.breeasy.com/products/login-links.html">Login</a></li>
+					<li class="last"></li>
+					<li class="last"><a href="https://twitter.com/#!/EasyBreeasy"><img src="http://www.breeasy.com/images/twitter-24x24.jpg" alt="follow us on twitter" width="24" height="24" title="follow us on twitter" /></a>
+					<li class="last"><a href="feed://brze.me/feed/"><img src="http://www.breeasy.com/images/feed-24x24.png" alt="rss" width="24" height="24" /></a>
+</li>
+</li>
+				</ul>
+				
+			</div>
+			<div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/about.html">About Us </a> > Contact Us</div>
+		</div> <!-- hd -->
+
+
 <body>
 	
 	<%= yield %>
+</div>
+<div id='ft' class="center">
+	<p id='goodbye'>copyright &copy; 2011 - 2012 Breeasy.com</p>
+</div>
 </body>
 </html>
