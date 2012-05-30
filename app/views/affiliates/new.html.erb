@@ -1,0 +1,53 @@
+<div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/about.html">Opportunities</a> > Affiliate Program</div>
+
+<div id="bd">
+	<div class="yui-g">
+	    <div class="yui-u first">
+		<h1>Signup Up Now!</h1>
+	    	<%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>
+			  <% if @user.errors.any? %>
+			    <div class="error_messages">
+			      <h2>An error occurred.</h2>
+			      <ul>
+			        <% for message in @user.errors.full_messages %>
+			          <li><%= message %></li>
+			        <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			  <p>
+			    <%= f.label :email %><br />
+			    <%= f.text_field :email %>
+			  </p>
+			  <p>
+			    <%= f.label :password %><br />
+			    <%= f.password_field :password %>
+			  </p>
+			  <p>
+			    <%= f.label :password_confirmation %><br />
+			    <%= f.password_field :password_confirmation %>
+			  </p>
+			  <p class="button"><%= f.submit %></p>
+			<% end %>
+			<%= link_to "Already have a Login?", login_path %>
+		 </div>
+	    <div class="yui-u">
+	    <h1>Earn commissions selling and referring Breeasy</h1>
+	    <p>It's easy to <i>Earn</i> with Breeasy!  Our affiliate program is designed to add substantial revenue to your blog, newsletter, small business content, and online retail site.  All you got to do is signup, read and agree to the terms, get your referral code and embeddable html and you are on your way.</p>
+	    <h2>Earn up to 30% on Paid Plans</h2>
+	    <p>Earn 30% referral fees on all new paid annual <a href="http://www.breeasy.com/plans">plans</a>. or you can earn 15% on all new paid monthly plans.  Your earn commissions on renewals, too.  15% on paid annual renewals.  Monthly plans renew each month and pay 15% with each paid renewal. Some limitations apply.
+	        <h2>How it Works</h2>
+	    <p>Each affiliate is provided a unique 6 digit referral code and embeddable html code that includes your referral code.  Once a user clicks your link, or enters your referral code when they sign up, that account is always linked to your affiliate code.  For example, if they start with a <a href="http://www.breeasy.com/breeasy-for-business">BFB Risk-Free Trial</a> or one of our <a href="http:breeasy.com/breeasy-billing-center">free apps</a>, then buy a plan, you earn on each paid subscription. It never expires. </p>
+    
+		<h2>On Demand Tracking and Reporting</h2>
+		<p>Do you like to manage your affiliate program in real time?  You can with the Breeasy Affiliate Program.  You can see how many trials, plans, and renewals are active and pending.</p>
+		<h2>Hurry - Limited Number of Affiliates Available</h2>
+		<p>Based on our the results of our beta program, we are limiting the number of affiliates that market and refer Breeasy apps.</p>
+			<blockquote>"The Breeasy Affiliate Program, like our products is designed to simple, easy to use and create revenue opportunities for like minded businesses.  I invite you to become an affiliate, try our apps and generate value-added profits from your blog, web content or complimentary service."<br>
+		- Tom 0., Founder, Breeasy.com
+
+		</blockquote>
+		</div>
+
+	</div>
+</div>

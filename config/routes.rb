@@ -1,13 +1,21 @@
 BreeasyContact::Application.routes.draw do
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "sign_up" => "users#new", :as => "sign_up"
 
-  resources :users
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+
+  resources :users do
+    resources :affiliates
+  end
+  
   resources :sessions
   resources :contacts
   
+  
   match 'thank_you/:id' => 'contacts#thank_you', :as => 'thank_you'
+  match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details
+  match 'users/create_affiliate_details' => 'users#create_affiliate_details', :as => :create_affiliate_details
+  match 'affiliate-home' => 'affiliates#new'
   
   root :to => 'contacts#new'
   

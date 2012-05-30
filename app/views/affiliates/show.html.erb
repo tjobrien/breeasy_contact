@@ -1,0 +1,44 @@
+<div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/about.html">Opportunities</a> > Affiliate Program</div>
+
+<div id="bd">
+
+		<div class="yui-g">
+			<% if current_user %>
+			<h1>Welcome to the Breeasy Affiliate Program, Your Name Here!</h1>
+		    <div class="yui-u first">
+			
+			<h2>Your Details</h2>
+			<table>
+				<thead></thead>
+				<tbody>
+					<tr><td>Login:</td><td><%= current_user.email %></td></tr>
+					<% unless current_user.affiliate_detail.nil? %>
+						<tr><td>First Name:</td><td><%= current_user.affiliate_detail.first_name %></td></tr>
+						<tr><td>Last Name:</td><td><%= current_user.affiliate_detail.last_name %></td></tr>
+						<tr><td>Company:</td><td><%= current_user.affiliate_detail.company %></td></tr>
+						<tr><td>Address:</td><td><%= current_user.affiliate_detail.address %></td></tr>
+						<tr><td>City:</td><td><%= current_user.affiliate_detail.city %></td></tr>
+						<tr><td>State:</td><td><%= current_user.affiliate_detail.state %></td></tr>
+						<tr><td>Post Code:</td><td><%= current_user.affiliate_detail.post_code %></td></tr>
+						<tr><td>Affiliate Code:</td><td><%= current_user.affiliate_detail.affiliate_code %></td></tr>
+						<tr><td>Affiliate URL:</td><td><%= current_user.affiliate_detail.affiliate_url %></td></tr>
+						<tr><td colspan="2"><%= link_to "Edit", edit_affiliate_path %></td></tr>
+						
+					<% else %>
+						<tr><td colspan="2"><%= link_to "Enter your Details", new_affiliate_details_path %></td></tr>
+					
+					<% end %>
+				</tbody>
+			</table>
+		    	
+			 </div>
+		    <div class="yui-u">
+			<h2>Recent Activity</h2>
+			</div>
+			<% else %>
+			<p>Signup or login</p>
+			<% end %>
+		</div>
+
+</div>
+	

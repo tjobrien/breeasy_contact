@@ -1,0 +1,31 @@
+<h1>Add Your Details</h1>
+Please be complete as possible.
+<%= form_for @affiliate_detail, :url => create_affiliate_details_path do |f| %>
+<% if @affiliate_detail.errors.any? %>  
+  <div class='error'>  
+    <h2><%= pluralize(@affiliate_detail.errors.count, "error") %> prevent this list from being saved:</h2>  
+    <ul>  
+    <% @affiliate_detail.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>
+<% end %>
+ 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+<table>
+  <tr><td><%= f.label :first_name %></td><td> <%= f.text_field :first_name %></td></tr>
+  <tr><td><%= f.label :last_name %></td><td><%= f.text_field :last_name %></td></tr>
+  <tr><td><%= f.label :title %></td><td><%= f.text_field :title %></td></tr>
+  <tr><td><%= f.label :company %></td><td><%= f.text_field :company %></td></tr>
+  <tr><td><%= f.label :phone %></td><td><%= f.text_field :phone %></td></tr>
+  <tr><td><%= f.label :address %></td><td><%= f.text_field :address %></td></tr>
+  <tr><td><%= f.label :city %></td><td><%= f.text_field :city %></td></tr>
+  <tr><td><%= f.label :state %></td><td><%= f.text_field :state %></td></tr>
+  <tr><td><%= f.label :post_code %></td><td><%= f.text_field :post_code %></td></tr>
+  <tr><td><%= f.label :country %></td><td><%= f.text_field :country %></td></tr>
+  <tr><td><%= f.label :affiliate_code %></td><td><%= f.text_field :affiliate_code %></td></tr>
+</table>
+  
+  <%= f.submit %>
+<% end %>

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529172729) do
+ActiveRecord::Schema.define(:version => 20120530002400) do
+
+  create_table "affiliate_details", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "company"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "post_code"
+    t.string   "url"
+    t.string   "affiliate_code"
+    t.string   "affiliate_url"
+    t.boolean  "accepted_terms"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "title"
+  end
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -29,6 +49,14 @@ ActiveRecord::Schema.define(:version => 20120529172729) do
     t.string   "contact_method"
     t.boolean  "referral"
     t.boolean  "bbc"
+  end
+
+  create_table "urls", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "product"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
