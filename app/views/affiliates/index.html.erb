@@ -3,7 +3,6 @@
 <div id="bd">
 
 		<div class="yui-g">
-			<% if current_user %>
 			<h1>Welcome to the Breeasy Affiliate Program<%= ", #{current_user.affiliate_detail.first_name}" unless current_user.affiliate_detail.nil? %></h1>
 		    <div class="yui-u first">
 			
@@ -32,24 +31,21 @@
 					<% end %>
 				</tbody>
 			</table>
-			<h2>Your Promo Code URLS</h2>
-			<table>
-				<thead><th>Product</th><th>URL</th></thead>
-				<tbody>
-					<% current_user.urls.each do |url| %>
-						<tr><td><%= url.product %></td><td><%= url.url %></td></tr>
-				
-					<% end %>
-				</tbody>
-			</table>
-		    	
 			 </div>
 		    <div class="yui-u">
 			<h2>Recent Activity</h2>
 			</div>
-			<% else %>
-			<p>Signup or login</p>
-			<% end %>
+			
 		</div>
+		<h2>Your Referral Code URLS</h2>
+		<table>
+			<thead><th>Product</th><th>URL</th><th>Link</th></thead>
+			<tbody>
+				<% current_user.urls.each do |url| %>
+					<tr><td><%= url.product %></td><td><%= url.url %></td><td><%= url.link %></td></tr>
+			
+				<% end %>
+			</tbody>
+		</table>
 
 </div>

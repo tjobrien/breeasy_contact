@@ -1,5 +1,7 @@
 class AffiliatesController < ApplicationController
-  before_filter :get_owner, :except => [:new]
+  
+  before_filter :get_owner, :logged_in, :except => [:new]
+  
   
    def get_owner
      @user = User.find(params[:user_id])

@@ -1,2 +1,8 @@
 http://railscasts.com/episodes/250-authentication-from-scratch?view=asciicast
 Used this for authentication.
+
+
+http://localhost:3000/signup?referrer=bt_consulting
+
+http://app.breeasy.com/singup
+

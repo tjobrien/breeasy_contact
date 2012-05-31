@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+  before_filter :logged_in, :except => [:new, :create]
   def new
       @user = User.new
   end
@@ -26,6 +28,13 @@ class UsersController < ApplicationController
       #raise @affiliate_detail.inspect
       if @affiliate_detail.save
         redirect_to user_affiliates_path(current_user.id)
+        #create affiliate_urls
+        code = @affiliate_detail.affiliate_code
+        url_path = "http://app.breeasy.com/signup?referrer=#{code}"
+        link = "<a href='#{url_path}'>Edit This Text</a>"
+        user = @affiliate_detail.user
+        url = user.urls.build(:product => "Breeasy For Business", :url => url_path, :link => link)
+        url.save
       else
         render 'new_affiliate_details'
       end
