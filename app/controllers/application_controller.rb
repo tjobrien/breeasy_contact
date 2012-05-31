@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
    
    def route_request
     if request.url == "http://affiliate.breeasy.com/"
-      redirect_to 'affiliate_home_path'
+      redirect_to affiliate_home_path
     end
   
    end
