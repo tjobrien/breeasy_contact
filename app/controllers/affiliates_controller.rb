@@ -1,6 +1,6 @@
 class AffiliatesController < ApplicationController
   
-  before_filter :get_owner, :logged_in, :except => [:new]
+  before_filter :logged_in, :except => [:new]
   
   
    def get_owner
@@ -17,8 +17,13 @@ class AffiliatesController < ApplicationController
   end
 
   def index
-    
-      
+    #need a method that returns all the users that have this users affiliate code in BFB
+   code = current_user.affiliate_detail.affiliate_code
+   #go to BFB and get all the users that have this code.
+   
+  # @bfb_users = some_url_at_bfb(code)
+  
+   #with each user, need to know the account status; i.e. if they paid etc.    
   end
   
   

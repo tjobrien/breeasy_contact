@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531203701) do
+ActiveRecord::Schema.define(:version => 20120805183811) do
 
   create_table "affiliate_details", :force => true do |t|
     t.string   "first_name"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(:version => 20120531203701) do
     t.string   "contact_method"
     t.boolean  "referral"
     t.boolean  "bbc"
+  end
+
+  create_table "promo_codes", :force => true do |t|
+    t.string   "promo_code"
+    t.string   "affiliate_id"
+    t.date     "start_date"
+    t.string   "end_date"
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "urls", :force => true do |t|
