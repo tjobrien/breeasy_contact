@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
-  has_one :affiliate_detail
-  has_many :urls
+  has_one :affiliate_detail, :dependent => :destroy
+  has_many :urls, :dependent => :destroy
   
   def self.authenticate(email, password)
     user = find_by_email(email)

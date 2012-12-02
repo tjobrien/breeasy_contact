@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     def create
       @user = User.new(params[:user])
       if @user.save
-        redirect_to root_url, :notice => "Signed up!"
+        session[:user_id] = @user.id
+        redirect_to new_affiliate_details_path, :notice => "Signed up!"
       else
         render "affiliates/new"
       end
@@ -30,11 +31,15 @@ class UsersController < ApplicationController
         redirect_to user_affiliates_path(current_user.id)
         #create affiliate_urls
         code = @affiliate_detail.affiliate_code
-        url_path = "http://app.breeasy.com/signup?referrer=#{code}"
-        link = "<a href='#{url_path}'>Edit This Text</a>"
+        #url_path = "http://app.breeasy.com/signup?referrer=#{code}"
+        #link = "<a href='#{url_path}'>Edit This Text</a>"
         user = @affiliate_detail.user
-        url = user.urls.build(:product => "Breeasy For Business", :url => url_path, :link => link)
-        url.save
+        Program.all.each do |p|
+          url_path = p.url_path + code
+          link = "<a href='#{url_path}'>Edit This Text</a>"
+          url = user.urls.build(:program_description => p.name, :url => url_path, :link => link, :program_id => p.id)
+          url.save
+        end
       else
         render 'new_affiliate_details'
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805183811) do
+ActiveRecord::Schema.define(:version => 20121202192717) do
 
   create_table "affiliate_details", :force => true do |t|
     t.string   "first_name"
@@ -52,6 +52,26 @@ ActiveRecord::Schema.define(:version => 20120805183811) do
     t.boolean  "bbc"
   end
 
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.decimal  "new"
+    t.decimal  "renewal"
+    t.boolean  "active"
+    t.integer  "interval"
+    t.integer  "plan_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.boolean  "active"
+    t.string   "url_path"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "promo_codes", :force => true do |t|
     t.string   "promo_code"
     t.string   "affiliate_id"
@@ -64,11 +84,12 @@ ActiveRecord::Schema.define(:version => 20120805183811) do
 
   create_table "urls", :force => true do |t|
     t.integer  "user_id"
-    t.string   "product"
+    t.string   "program_description"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "link"
+    t.integer  "program_id"
   end
 
   create_table "users", :force => true do |t|

@@ -1,0 +1,8 @@
+Program.create(:name => "Breeasy For Small Business - 30 Day Free Trial", :active => true, :url_path => "http://app.breeasy.com/signup?referrer=",
+:notes => "Your referral code is linked to user on sign-up, You'll earn commissions when user upgrades to one of the Breeasy paid plans.")
+
+
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.4, :renewal => 0.3, :active => true,  :interval => 1, :plan_id => 5)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.4, :renewal => 0.3, :active => true, :interval => 1, :plan_id => 8)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.4, :renewal => 0.3, :active => true,  :interval => 2, :plan_id => 4)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.4, :renewal => 0.3, :active => true, :interval => 2, :plan_id => 6)
