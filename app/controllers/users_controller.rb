@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         Program.all.each do |p|
           url_path = p.url_path + code
           link = "<a href='#{url_path}'>Edit This Text</a>"
-          url = user.urls.build(:program_descriptio => p.name, :url => url_path, :link => link, :program_id => p.id)
+          url = user.urls.build(:program_description => p.name, :url => url_path, :link => link, :program_id => p.id)
           url.save
         end
       else
