@@ -1,56 +1,27 @@
-<h1>Add Your Details</h1>
+<h1>Add Your User Details</h1>
 <div id="bd">
 	<div class="yui-g">
-	    <div class="yui-u first">
-		Please be complete as possible.
-		<%= form_for @affiliate_detail, :url => create_affiliate_details_path do |f| %>
-		<% if @affiliate_detail.errors.any? %>  
-		  <div class='error'>  
-		    <h2><%= pluralize(@affiliate_detail.errors.count, "error") %> prevent this list from being saved:</h2>  
-		    <ul>  
-		    <% @affiliate_detail.errors.full_messages.each do |msg| %>  
-		      <li><%= msg %></li>  
-		    <% end %>  
-		    </ul>  
-		  </div>
-		<% end %>
- 
-		  <%= f.hidden_field :user_id, :value => current_user.id %>
-		<table>
-		  <tr><td><%= f.label :bfb_id, "Breeasy UserName" %></td><td> <%= f.text_field :bfb_id%></td></tr>
-		  <tr><td><%= f.label :first_name %></td><td> <%= f.text_field :first_name %></td></tr>
-		  <tr><td><%= f.label :last_name %></td><td><%= f.text_field :last_name %></td></tr>
-		  <tr><td><%= f.label :title %></td><td><%= f.text_field :title %></td></tr>
-		  <tr><td><%= f.label :company %></td><td><%= f.text_field :company %></td></tr>
-		  <tr><td><%= f.label :phone %></td><td><%= f.text_field :phone %></td></tr>
-		  <tr><td><%= f.label :address %></td><td><%= f.text_field :address %></td></tr>
-		  <tr><td><%= f.label :city %></td><td><%= f.text_field :city %></td></tr>
-		  <tr><td><%= f.label :state %></td><td><%= f.text_field :state %></td></tr>
-		  <tr><td><%= f.label :post_code %></td><td><%= f.text_field :post_code %></td></tr>
-		  <tr><td><%= f.label :country %></td><td><%= f.text_field :country %></td></tr>
-		  <tr><td><%= f.label :affiliate_code %></td><td><%= f.text_field :affiliate_code, :placeholder => "no special characters or spaces" %></td></tr>
-		
-		</table>
-  		<%= f.check_box :accepted_terms %> I have read and I understand the Terms of the Breeasy Affiliate Program.
-		
-		 <%= f.submit "Create Affiliate" %>
-		<% end %>
-		</div>
+			Email Address:  <%= current_user.email %> - Please be complete as possible.
+			<%= simple_form_for @affiliate_detail, :url => create_affiliate_details_path do |f| %>
+			<%= f.error_notification %>
+ 			<%= f.input  :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+			<%= f.input :first_name %>
+			<%= f.input :last_name %>
+			<%= f.input :title %>
+			<%= f.input :company %>
+			<%= f.input :phone %>
+			<%= f.input :address %>
+			<%= f.input :city %>
+			<%= f.input :state %>
+			<%= f.input :post_code %>
+			<%= f.input :country, :as => :string %>
+			<%= f.input :affiliate_code, :hint => "Create your own affiliate code - no special characters or spaces", :placeholder => "e.g. Your Company Name" %>
+			<%= render :partial => "terms" %>
+			<br>
+			<%= f.input :accepted_terms, :label => "  I have read, understand, and accept the Terms of the Breeasy Affiliate Program." %>
 
-		<div class"yui-u">
-		<h2>Terms</h2>
-		All Pricing is set by Breeasy.com.  Breeasy will, from time to time, run specials, promos, etc. as well as offer discounts as an incentive.  Commissions paid are on these discounted prices, when
-		applicable.<br>
-		The number of Breeasy affiliates is set at 100.  This could change at any time.<br>
-		Payments made every 15th of the month with a minimum of $10.00.<br>
-		Affiliates are expected to maintain a commission earnings of $100.00 per month, after 3 months of joining the program.  Affiliates that perform below this minimum
-		may be cancelled from the program with 30 days notice at the discretion of Breeasy.com management.<br>
-		For each new paid annual subscription, each affiliate earns 30%.  New monthly paid subscriptions earn 15%. Each subscription that renews and paid, each affiliate earns 15%.  These commissions are earned when the 
-			subscription is paid.  Renewals are annual or monthly.  In the case that a subscription is cancelled, any commissions previously paid on new or renewal and annual subscriptions
-			 are pro-rated and credited against future payments.<br>
+			<%= f.submit "Create Affiliate Account" %>
+			<% end %>
 
-		To reduce fraud, affiliates that have a subscriber cancellation rate higher than 10% will result in cancellation of the affiliate program and commission payments will be suspended.<br>
-		In certain cases, refunds for cancelled subscriptions will be pro-rated and the any commission paid will be deducted from any refund amount.
-		</div>
 	</div>
 </div>
