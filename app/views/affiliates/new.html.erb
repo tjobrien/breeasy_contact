@@ -4,31 +4,7 @@
 	<div class="yui-g">
 	    <div class="yui-u first">
 		<h1>Sign Up Now!</h1>
-	    	<%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>
-			  <% if @user.errors.any? %>
-			    <div class="error_messages">
-			      <h2>An error occurred.</h2>
-			      <ul>
-			        <% for message in @user.errors.full_messages %>
-			          <li><%= message %></li>
-			        <% end %>
-			      </ul>
-			    </div>
-			  <% end %>
-			  <p>
-			    <%= f.label :email %><br />
-			    <%= f.text_field :email %>
-			  </p>
-			  <p>
-			    <%= f.label :password %><br />
-			    <%= f.password_field :password %>
-			  </p>
-			  <p>
-			    <%= f.label :password_confirmation %><br />
-			    <%= f.password_field :password_confirmation %>
-			  </p>
-			  <p class="button"><%= f.submit %></p>
-			<% end %>
+		<%= render :partial => 'signup_form', :locals => {:master => false} %>
 			<%= link_to "Already have a Login?", login_path %>
 			<blockquote>"The Breeasy Affiliate Program, like all our products, is designed to be simple, easy to use, and create revenue opportunities for businesses that have cross promotional opportunities and related services.  I invite you to become an affiliate, try our apps and generate value-added profits from your blog, web content or complimentary service."<br>
 		- Tom 0., Founder, Breeasy.com
@@ -38,8 +14,8 @@
 	    <div class="yui-u">
 	    <h1>Earn commissions selling and referring Breeasy</h1>
 	    <p>It's easy to <i>Earn</i> with Breeasy!  Our affiliate program is designed to add substantial revenue to your blog, newsletter, small business content, and online retail site.  All you got to do is signup, read and agree to the terms, get your referral code and embeddable html and you are on your way.</p>
-	    <h2>Earn up to 40% on Paid Plans</h2>
-	    <p>Earn 40% commissions on all new paid <a href="http://www.breeasy.com/plans">plans</a>.  You'll earn commissions on renewals, too - 30%.  These commission rates are available for a limited time. Some limitations apply.
+	    <h2>Earn up to 35% on Paid Plans</h2>
+	    <p>Earn 35% commissions on all new paid <a href="http://www.breeasy.com/plans">plans</a>.  You'll earn commissions on renewals, too - up to 25%.  These commission rates are subject to change and some limitations apply.  Commission rates are published on your Affiliate Dashboard.
 	        <h2>How it Works</h2>
 	    <p>Each affiliate creates their own unique referral code and is provided an embeddable html link that includes your custom referral code.  Once a user clicks your link, or enters your referral code when they sign up, that account is always linked to your affiliate code.  For example, if they start with a <a href="http://www.breeasy.com/apps/breeasy-for-business">Breeasy for Small Business Risk Free Trial</a>, then upgrade to a paid plan, you'll earn on each paid subscription. It never expires. </p>
     
@@ -47,8 +23,10 @@
 		<p>Do you like to manage your affiliate program in real time?  You can with the Breeasy Affiliate Program.  You can see how many trials, plans, and renewals are active and pending.</p>
 		<h2>Hurry - Limited Number of Affiliates Available</h2>
 		<p>Based on the results of our beta program, we are limiting the number of affiliates that can market and refer Breeasy apps.</p>
-			
+		<h2>Want to earn even more Commissions?</h2>
+		<p>Be sure and check out the Breeasy Master Affiliate Program.  <%= link_to "Earn up to 50% on paid subscriptions", new_master_path %>.</p>
 		</div>
+		
 
 	</div>
 </div>

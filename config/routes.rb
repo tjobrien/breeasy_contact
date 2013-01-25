@@ -16,6 +16,7 @@ BreeasyContact::Application.routes.draw do
   match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details
   match 'users/create_affiliate_details' => 'users#create_affiliate_details', :as => :create_affiliate_details
   match 'affiliate-home' => 'affiliates#new', :as => :affiliate_home
+  match 'master-affiliate-signup' =>'affiliates#new_master', :as => :new_master
   
   root :to => 'contacts#new'
   

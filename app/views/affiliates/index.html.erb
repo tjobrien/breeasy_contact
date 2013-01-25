@@ -12,6 +12,7 @@
 					<% unless current_user.affiliate_detail.nil? %>
 						<tr><td>First Name:</td><td><%= current_user.affiliate_detail.first_name %></td></tr>
 						<tr><td>Last Name:</td><td><%= current_user.affiliate_detail.last_name %></td></tr>
+						<tr><td>Master?</td><td><%= current_user.master %></td></tr>
 						<tr><td>Title:</td><td><%= current_user.affiliate_detail.title%></td></tr>
 						<tr><td>Phone:</td><td><%= current_user.affiliate_detail.phone%></td></tr>
 						<tr><td>Company:</td><td><%= current_user.affiliate_detail.company %></td></tr>
@@ -48,10 +49,10 @@
 		</table>
 		<h2>Commission Schedule - Updated 01/25/2013</h2>
 		<table>
-			<thead><th>Product Name</th><th>Interval</th><th>New</th><th>Renewal</th></thead>
+			<thead><th>Id</th><th>Product Name</th><th>Interval</th><th>New</th><th>Renewal</th></thead>
 			<tbody>
 				<% Product.active.each do |p| %>
-					<tr><td><%= p.name %></td><td><%= p.interval %></td><td><%= p.new %></td><td><%= p.renewal %></td></tr>
+					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= p.interval %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td></tr>
 				<% end %>
 			</tbody>
 		</table>

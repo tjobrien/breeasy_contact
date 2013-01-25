@@ -11,6 +11,9 @@ class AffiliatesController < ApplicationController
   def new
     @user = User.new
   end
+  def new_master
+    @user = User.new
+  end
   
   def edit
     @affiliate_detail = AffiliateDetail.find(params[:id])
