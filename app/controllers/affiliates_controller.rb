@@ -1,6 +1,6 @@
 class AffiliatesController < ApplicationController
   
-  before_filter :logged_in, :except => [:new]
+  before_filter :logged_in, :except => [:new, :new_master]
   
   
    def get_owner
@@ -20,7 +20,7 @@ class AffiliatesController < ApplicationController
   end
 
   def index
-    #need a method that returns all the users that have this users affiliate code in BFB
+    #need a method that returns all the users that have this users affiliate code in BFSB
    code = current_user.affiliate_detail.affiliate_code
    #go to BFB and get all the users that have this code.
    

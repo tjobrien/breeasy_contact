@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   
   before_filter :logged_in, :except => [:new, :create]
+  
   def new
       @user = User.new
+      @referrer = "breeasy"
   end
   
   def show

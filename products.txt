@@ -2,7 +2,34 @@ Program.create(:name => "Breeasy For Small Business - 30 Day Free Trial", :activ
 :notes => "Your referral code is linked to user on sign-up, You'll earn commissions when user upgrades to one of the Breeasy paid plans.")
 
 
-Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.4, :renewal => 0.3, :active => true,  :interval => 1, :plan_id => 5)
-Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.4, :renewal => 0.3, :active => true, :interval => 1, :plan_id => 8)
-Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.4, :renewal => 0.3, :active => true,  :interval => 2, :plan_id => 4)
-Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.4, :renewal => 0.3, :active => true, :interval => 2, :plan_id => 6)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.25, :renewal => 0.25, :active => true,  :interval => 1, :plan_id => 5)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.25, :renewal => 0.25, :active => true, :interval => 1, :plan_id => 8)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.35, :renewal => 0.25, :active => true,  :interval => 2, :plan_id => 4)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.35, :renewal => 0.25, :active => true, :interval => 2, :plan_id => 6)
+
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.40, :renewal => 0.40, :active => true,  :interval => 1, :plan_id => 5, :master => true)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.40, :renewal => 0.40, :active => true, :interval => 1, :plan_id => 8, :master => true)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.50, :renewal => 0.40, :active => true,  :interval => 2, :plan_id => 4, :master => true)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.50, :renewal => 0.40, :active => true, :interval => 2, :plan_id => 6, :master => true)
+
+
+Program.create(:name => "Breeasy Billing, Invoicing, and Time Tracking App", :active => true, :url_path => "http://billing.breeasy.com/users/sign_up?referrer=",
+:notes => "This is a free web app.  When your users upgrade to a paid app, you'll earn commissions.")
+
+Program.create(:name => "InstaInvoice Mobile Billing App", :active => true, :url_path => "http://billing.breeasy.com/signup?referrer=",
+:notes => "This is a free mobile app.")
+
+
+
+//code to add new programs to existing users
+p = Program.last
+  Program Load (0.2ms)  SELECT "programs".* FROM "programs" ORDER BY "programs"."id" DESC LIMIT 1
+ => #<Program id: 2, name: "Breeasy Billing, Invoicing, and Time Tracking App", notes: "This is a free web app.  When your users upgrade to...", active: true, url_path: "http://billing.breeasy.com/sign_up?referrer=", created_at: "2013-02-14 18:44:54", updated_at: "2013-02-14 18:47:36">
+
+User.all.each do |u|
+1.9.3p125 :018 >     code = u.affiliate_detail.affiliate_code
+1.9.3p125 :019?>   url_path = p.url_path + code
+1.9.3p125 :020?>   link = "<a href='#{url_path}'>Edit This Text</a>"
+1.9.3p125 :021?>   url = u.urls.build(:program_description => p.name, :url => url_path, :link => link, :program_id => p.id)
+1.9.3p125 :022?>   url.save
+1.9.3p125 :023?>   end

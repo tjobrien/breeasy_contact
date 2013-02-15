@@ -12,7 +12,7 @@
 					<% unless current_user.affiliate_detail.nil? %>
 						<tr><td>First Name:</td><td><%= current_user.affiliate_detail.first_name %></td></tr>
 						<tr><td>Last Name:</td><td><%= current_user.affiliate_detail.last_name %></td></tr>
-						<tr><td>Master?</td><td><%= current_user.master %></td></tr>
+						<tr><td>Affiliate Type:</td><td><%= affiliate_type(current_user.master) %></td></tr>
 						<tr><td>Title:</td><td><%= current_user.affiliate_detail.title%></td></tr>
 						<tr><td>Phone:</td><td><%= current_user.affiliate_detail.phone%></td></tr>
 						<tr><td>Company:</td><td><%= current_user.affiliate_detail.company %></td></tr>
@@ -32,30 +32,33 @@
 			</table>
 			 </div>
 		    <div class="yui-u">
-			<h2>Recent Activity</h2>
+			<h2>Recent Signups</h2>
+			<table>
+				<thead><th>App</th><th>Plan</th><th>Date</th><th>email</th></thead>
+			</table>
+			<h2>Recent Paid Subscriptions</h2>
+			<table>
+				<thead><th>App</th><th>Plan</th><th>Date</th><th>email</th></thead>
+			</table>
+			<h2>Earnings</h2>
+			<table>
+				<thead><th>This Week</th><th>This Month</th><th>This Year</th><th</thead>
+			</table>
+			
 			
 			</div>
 			
 		</div>
 		<h2>Your Referral Code Links </h2>
+		<% current_user.urls.each do |url| %>
 		<table>
-			<thead><th>Description</th><th>URL</th><th>Link</th><th>Notes</th></thead>
+			<h3><%= url.program_description %></h3>
+			<thead><th>URL</th><th>Link</th><th>Notes</th></thead>
 			<tbody>
-				<% current_user.urls.each do |url| %>
-					<tr><td><%= url.program_description %></td><td><%= url.url %></td><td><%= url.link %></td><td><%= url.program.notes %></td></tr>
-			
-				<% end %>
+					<tr><td><%= url.url %></td><td><%= url.link %></td><td><%= url.program.notes %></td></tr>
 			</tbody>
 		</table>
-		<h2>Commission Schedule - Updated 01/25/2013</h2>
-		<table>
-			<thead><th>Id</th><th>Product Name</th><th>Interval</th><th>New</th><th>Renewal</th></thead>
-			<tbody>
-				<% Product.active.each do |p| %>
-					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= p.interval %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td></tr>
-				<% end %>
-			</tbody>
-		</table>
-		Legend:  1 = Monthly, 2 = Annual<br>
+		<% end %>
+		<%= render :partial => "products" %>
 		<h2>Instructions</h2>
 </div>
