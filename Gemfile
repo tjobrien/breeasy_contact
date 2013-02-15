@@ -14,7 +14,7 @@ group :production do
   gem 'pg'
   gem 'thin'
 end
-
+gem "httparty"
 gem "bcrypt-ruby", "~> 3.0.1", :require => "bcrypt"
 gem "simple_form", "~> 2.0.4"
 # Gems used only for assets and not required

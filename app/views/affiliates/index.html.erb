@@ -34,7 +34,15 @@
 		    <div class="yui-u">
 			<h2>Recent Signups</h2>
 			<table>
-				<thead><th>App</th><th>Plan</th><th>Date</th><th>email</th></thead>
+				<thead><tr><th>user email</th><th>App</th><th>Plan</th><th>Date</th></tr></thead>
+				<% current_user.get_breeasy_billing_referrals.each do |r| %>
+					<tr><td><%= r['email'] %></td><td>Breeasy Billing</td><td>Free Version</td><td><%= r['created_at'] %></td></tr>
+				<% end %>
+				<% current_user.get_bfsb_referrals.each do |r| %>
+				<tr><td><%= r['user']['email'] %></td><td>BFSB</td><td>30 Day Trial</td><td><%= r['user']['created_at'] %></td></tr>
+				
+				<% end %>
+				
 			</table>
 			<h2>Recent Paid Subscriptions</h2>
 			<table>

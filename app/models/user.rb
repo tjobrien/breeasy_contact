@@ -26,4 +26,15 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+  def get_breeasy_billing_referrals
+    ref_code = self.affiliate_detail.affiliate_code
+    response = HTTParty.get("http://billing.breeasy.com/api/v1/user/referral_users.json?referrer=#{ref_code}")
+    return response
+  end
+  
+  def get_bfsb_referrals
+    ref_code = self.affiliate_detail.affiliate_code
+    response = HTTParty.get("http://app.breeasy.com/api/v1/users.json?referrer=#{ref_code}")
+    return response
+  end
 end
