@@ -16,9 +16,18 @@
 			<%= f.input :post_code %>
 			<%= f.input :country, :as => :string %>
 			<%= f.input :affiliate_code, :hint => "Create your own affiliate code - no special characters or spaces", :placeholder => "e.g. Your Company Name" %>
-			<%= render :partial => "terms" %>
+			<% if current_user.master %>
+				<%= render :partial => "users/master_terms" %>
+				<%= render :partial => 'users/terms' %>
+			<% else %>
+				<%= render :partial => "users/terms" %>
+			<% end %>
 			<br>
-			<%= f.input :accepted_terms, :label => "  I have read, understand, and accept the Terms of the Breeasy Affiliate Program." %>
+			<% if current_user.master %>
+				<%= f.input :accepted_terms, :label => "  I have read, understand, and accept the Terms of the Breeasy Master Affiliate Program." %>
+			<% else %>
+				<%= f.input :accepted_terms, :label => "  I have read, understand, and accept the Terms of the Breeasy Affiliate Program." %>
+			<% end %>
 
 			<%= f.submit "Create Affiliate Account" %>
 			<% end %>

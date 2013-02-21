@@ -7,10 +7,10 @@ Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.25, :re
 Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.35, :renewal => 0.25, :active => true,  :interval => 2, :plan_id => 4)
 Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.35, :renewal => 0.25, :active => true, :interval => 2, :plan_id => 6)
 
-Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.40, :renewal => 0.40, :active => true,  :interval => 1, :plan_id => 5, :master => true)
-Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.40, :renewal => 0.40, :active => true, :interval => 1, :plan_id => 8, :master => true)
-Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.50, :renewal => 0.40, :active => true,  :interval => 2, :plan_id => 4, :master => true)
-Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.50, :renewal => 0.40, :active => true, :interval => 2, :plan_id => 6, :master => true)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.40, :renewal => 0.40, :active => true,  :interval => 1, :plan_id => 5, :master => true, :sub_commission => 0.15)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.40, :renewal => 0.40, :active => true, :interval => 1, :plan_id => 8, :master => true, :sub_commission => 0.15)
+Product.create(:name => "Breeasy For Small Business - Standard", :new => 0.50, :renewal => 0.40, :active => true,  :interval => 2, :plan_id => 4, :master => true, :sub_commission => 0.15)
+Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.50, :renewal => 0.40, :active => true, :interval => 2, :plan_id => 6, :master => true, :sub_commission => 0.15)
 
 
 Program.create(:name => "Breeasy Billing, Invoicing, and Time Tracking App", :active => true, :url_path => "http://billing.breeasy.com/users/sign_up?referrer=",

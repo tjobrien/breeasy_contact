@@ -6,4 +6,12 @@ module AffiliatesHelper
     end
     return retval
   end
+  
+  def product_interval(interval)
+    retval = "Monthly"
+    if interval == 2
+      retval = "Annual"
+    end
+    return retval
+  end
 end

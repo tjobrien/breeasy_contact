@@ -17,6 +17,9 @@ BreeasyContact::Application.routes.draw do
   match 'users/create_affiliate_details' => 'users#create_affiliate_details', :as => :create_affiliate_details
   match 'affiliate-home' => 'affiliates#new', :as => :affiliate_home
   match 'master-affiliate-signup' =>'affiliates#new_master', :as => :new_master
+  match 'master-affiliate-earnings-calculator' => 'affiliates#affiliate_calculator', :as => :master_affiliate_earnings
+  match 'calculate-commissions' => 'affiliates#calculate_commissions', :as => :calculate_commissions
+  match 'sub-affiliate/:master_id' => 'affiliates#sub_affiliate', :as => :sub_affiliate
   
   root :to => 'contacts#new'
   

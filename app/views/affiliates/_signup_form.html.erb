@@ -25,6 +25,11 @@
 
 	    <%= f.hidden_field :master, :value => master %>
 <% end %>
+<% if master_id %>
+
+	    <%= f.hidden_field :master_id, :value => master_id %>
+<% end %>
+
 
   <p class="button"><%= f.submit %></p>
 <% end %>

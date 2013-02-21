@@ -4,11 +4,9 @@
 	<div class="yui-g">
 	    <div class="yui-u first">
 		<h1>Sign Up Now!</h1>
-		<%= render :partial => 'signup_form', :locals => {:master => true} %>
+		<%= render :partial => 'affiliates/signup_form', :locals => {:master => true, :master_id => nil} %>
 			<%= link_to "Already have a Breeasy Affiliate login?", login_path %>
-			<blockquote>"The Breeasy Affiliate Program, like all our products, is designed to be simple, easy to use, and create revenue opportunities for businesses that have cross promotional opportunities and related services.  I invite you to become an affiliate, try our apps and generate value-added profits from your blog, web content or complimentary service."<br>
-		- Tom 0., Founder, Breeasy.com
-		</blockquote>
+			<%= render :partial => 'affiliates/quote' %>
 			<h2>Hurry - Limited Number of Master Affiliates Available</h2>
 			<h2>What is a Sub-Affiliate?</h2>
 			<h2>What is a Sales Rep?</h2>
@@ -22,7 +20,7 @@
 	    <div class="yui-u">
 	    <h1>Breeasy Master Affiliate Program</h1>
 	    <h2>Make Breeasy <em>Your</em> Small Business!</h2>
-		<p>Looking for an interesting, simple, easy, and profitable small business of your own?  Need to maximize your income?  Looking for a part-time opportunity with unlimited upside? potential? Know lots of people who are great selling or know lot's of freelancers, consultants or small businesses? Becoming a <a href="http://affiliate.breeasy.com/affiliate-home">Breeasy Master Affiliate</a> is for you.  You can earn commissions of up to 50% on new paid subscribers and 40% on paid renewals.  Plus, you can recruit you own affiliates or sales representatives and earn from every subscription <em>they sell</em>.  Some conditions apply.</p>
+		<p>Looking for an interesting, simple, easy, and profitable small business of your own?  Need to maximize your income?  Looking for a part-time opportunity with unlimited upside? potential? Know lots of people who are great selling or know lot's of freelancers, consultants or small businesses? Becoming a Breeasy Master Affiliate is for you.  You can earn commissions of up to 50% on new paid subscribers and 40% on paid renewals.  Plus, you can recruit you own affiliates or sales representatives and earn from every subscription <em>they sell</em>.  Some conditions apply.  <%= link_to "How Much Can I Earn as a Master Affiliate?", master_affiliate_earnings_path %></p>
 		<h2>How it Works</h2>
 		<p>It's easy to become a master affiliate, use the signup form over on the left, and you'll be on your way.  As a Breeasy Master Affiliate, you:
 			<table>

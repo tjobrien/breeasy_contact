@@ -52,8 +52,12 @@
 			<table>
 				<thead><th>This Week</th><th>This Month</th><th>This Year</th><th</thead>
 			</table>
-			
-			
+			<% if current_user.master %>
+			<h2>Sub-Affiliate Sign-up Page</h2>
+			<%= link_to "Add Subs", sub_affiliate_path(current_user.id)  %>
+			<h2>Sub Affiliate Sign-up Link</h2>
+			<p><%= "http://affiliate.breeasy.com/sub-affiliate/#{current_user.id}" %></p>
+			<% end %>
 			</div>
 			
 		</div>
@@ -68,5 +72,27 @@
 		</table>
 		<% end %>
 		<%= render :partial => "products" %>
+		<% if current_user.master %>
+			<h3>Sub-Affiliates and Sales Reps</h3>
+			<table>
+				<thead><tr><th>Id</th><th>Email</th><th>First Name</th><th>Last Name</th><th>Company</th><th>Referral Code</th></tr></thead>
+				<tbody>
+					<% current_user.sub_affiliates.each do |sub| %>
+					<tr>
+						<td><%= sub.id %></td><td><%= sub.email %></td>
+						<% unless sub.affiliate_detail.nil? %>
+							<td><%= sub.affiliate_detail.first_name %></td>
+							<td><%= sub.affiliate_detail.last_name %></td>
+							<td><%= sub.affiliate_detail.company %></td>
+							<td><%= sub.affiliate_detail.affiliate_code %></td>
+							<td>View Details</td>
+						<% end %>
+						
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		
+		<% end %>
 		<h2>Instructions</h2>
 </div>

@@ -16,7 +16,11 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to new_affiliate_details_path, :notice => "Signed up!"
       else
-        render "affiliates/new"
+        if @user.master
+          render "affiliates/new_master"
+        else
+          render "affiliates/new"
+        end
       end
     end
     

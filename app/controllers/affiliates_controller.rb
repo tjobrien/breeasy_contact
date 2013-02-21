@@ -1,6 +1,6 @@
 class AffiliatesController < ApplicationController
   
-  before_filter :logged_in, :except => [:new, :new_master]
+  before_filter :logged_in, :except => [:new, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate]
   
   
    def get_owner
@@ -40,6 +40,40 @@ class AffiliatesController < ApplicationController
     else
       render 'edit'
     end
+    
+  end
+  def calculate_commissions
+    #get direct earnings for master calculator
+    comm_5 = 9.95 * params[:direct_5].to_f * 0.40 * 12
+    comm_6 = 14.95 * params[:direct_6].to_f * 0.40 * 12
+    comm_7 = 99.95 * params[:direct_7].to_f * 0.50
+    comm_8 = 149.95 * params[:direct_8].to_f * 0.50
+    @total_count = params[:direct_5].to_f + params[:direct_6].to_f + params[:direct_7].to_f + params[:direct_8].to_f
+    @total_direct = comm_5 + comm_6 + comm_7 + comm_8
+    plans = []
+    sub_count = params[:number_of_subs].to_f
+
+    sub_5 = 9.95 * params[:sub_5].to_f * 0.15 * sub_count * 12
+    sub_6 = 14.95 * params[:sub_6].to_f * 0.15 * sub_count * 12
+    sub_7 = 99.95 * params[:sub_7].to_f * 0.15 * sub_count
+    sub_8 = 149.95 * params[:sub_8].to_f * 0.15 * sub_count
+    @total_sub = sub_5 + sub_6 + sub_7 + sub_8
+    
+    redirect_to master_affiliate_earnings_path(:direct => @total_direct, :sub_affiliate => @total_sub, :total_count => @total_count, :sub_count => sub_count)
+  end
+  
+  
+  def affiliate_calculator
+    @total_direct = params[:direct] unless params[:direct].nil?
+    @total_sub = params[:sub_affiliate] unless params[:sub_affiliate].nil?
+    @total = @total_sub.to_f + @total_direct.to_f
+    @total_count = params[:total_count].to_f
+    @sub_count = params[:sub_count].to_f
+    
+  end
+  def sub_affiliate
+  @master_affiliate = User.find params[:master_id]
+  @user = User.new
     
   end
 end

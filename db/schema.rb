@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214181428) do
+ActiveRecord::Schema.define(:version => 20130221000154) do
 
   create_table "affiliate_details", :force => true do |t|
     t.string   "first_name"
@@ -59,9 +59,10 @@ ActiveRecord::Schema.define(:version => 20130214181428) do
     t.boolean  "active"
     t.integer  "interval"
     t.integer  "plan_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "master",     :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "master",         :default => false
+    t.decimal  "sub_commission"
   end
 
   create_table "programs", :force => true do |t|
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130214181428) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.boolean  "master"
+    t.integer  "master_id"
   end
 
 end

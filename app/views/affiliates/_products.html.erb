@@ -1,23 +1,21 @@
 <% if current_user.master %>
 <h2>Master Affiliate Commission Schedule - Updated 01/25/2013</h2>
 	<table>
-		<thead><th>Id</th><th>App Plan</th><th>Interval</th><th>New</th><th>Renewal</th></thead>
+		<thead><th>Id</th><th>App Plan</th><th>Interval</th><th>New Commission</th><th>Renewal Commission</th><th>Sub-Commission</th></thead>
 		<tbody>
 			<% Product.active.master.each do |p| %>
-				<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= p.interval %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td></tr>
+				<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td><td><%= number_to_percentage(p.sub_commission * 100, :precision => 0) %></td></tr>
 			<% end %>
 		</tbody>
 	</table>
 <% else %>
 <h2>Standard Affiliate Commission Schedule - Updated 01/25/2013</h2>
 	<table>
-		<thead><th>Id</th><th>App Plan</th><th>Interval</th><th>New</th><th>Renewal</th></thead>
+		<thead><th>Id</th><th>App Plan</th><th>Interval</th><th>New Commission</th><th>Renewal Commission</th></thead>
 		<tbody>
 			<% Product.active.standard.each do |p| %>
-				<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= p.interval %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td></tr>
+				<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= number_to_percentage(p.renewal * 100, :precision => 0) %></td></tr>
 			<% end %>
 		</tbody>
 	</table>
 <% end %>
-
-Legend:  1 = Monthly, 2 = Annual<br>

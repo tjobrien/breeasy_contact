@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :master, :master_id
   
   attr_accessor :password
   before_save :encrypt_password
@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   has_one :affiliate_detail, :dependent => :destroy
   has_many :urls, :dependent => :destroy
+  has_many :sub_affiliates, :class_name => "User", :foreign_key => "master_id"
   
   def self.authenticate(email, password)
     user = find_by_email(email)
