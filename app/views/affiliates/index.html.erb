@@ -13,6 +13,11 @@
 						<tr><td>First Name:</td><td><%= current_user.affiliate_detail.first_name %></td></tr>
 						<tr><td>Last Name:</td><td><%= current_user.affiliate_detail.last_name %></td></tr>
 						<tr><td>Affiliate Type:</td><td><%= affiliate_type(current_user.master) %></td></tr>
+						<% if current_user.master %>
+							<tr><td># of Sub-Affiliates:</td><td><%= current_user.sub_affiliates.count %></td></tr>
+						<% else %>
+							<tr><td>Affiliate Partner:</td><td><%= current_user.master_id unless current_user.master_id.nil? %></td></tr>
+						<% end %>
 						<tr><td>Title:</td><td><%= current_user.affiliate_detail.title%></td></tr>
 						<tr><td>Phone:</td><td><%= current_user.affiliate_detail.phone%></td></tr>
 						<tr><td>Company:</td><td><%= current_user.affiliate_detail.company %></td></tr>

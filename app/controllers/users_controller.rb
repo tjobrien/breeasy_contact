@@ -18,6 +18,9 @@ class UsersController < ApplicationController
       else
         if @user.master
           render "affiliates/new_master"
+        elsif @user.master_id
+          @master_affiliate = User.find(@user.master_id)
+          render 'affiliates/sub_affiliate'
         else
           render "affiliates/new"
         end

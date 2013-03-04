@@ -8,7 +8,7 @@ class AffiliatesController < ApplicationController
    end
   
   
-  def new
+  def new_standard
     @user = User.new
   end
   def new_master
@@ -74,6 +74,23 @@ class AffiliatesController < ApplicationController
   def sub_affiliate
   @master_affiliate = User.find params[:master_id]
   @user = User.new
+    
+  end
+  def standard_calculate_commissions
+    #get direct earnings for master calculator
+    comm_5 = 9.95 * params[:direct_1].to_f * 0.25 * 12
+    comm_6 = 14.95 * params[:direct_2].to_f * 0.25 * 12
+    comm_7 = 99.95 * params[:direct_3].to_f * 0.35
+    comm_8 = 149.95 * params[:direct_4].to_f * 0.35
+    @total_count = params[:direct_1].to_f + params[:direct_2].to_f + params[:direct_3].to_f + params[:direct_4].to_f
+    @total_direct = comm_5 + comm_6 + comm_7 + comm_8
+    redirect_to standard_affiliate_earnings_path(:direct => @total_direct, :total_count => @total_count)
+  end
+  
+  def standard_affiliate_calculator
+    @total_direct = params[:direct] unless params[:direct].nil?
+    @total_count = params[:total_count].to_f
+
     
   end
 end

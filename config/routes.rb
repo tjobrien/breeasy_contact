@@ -15,10 +15,13 @@ BreeasyContact::Application.routes.draw do
   match 'thank_you/:id' => 'contacts#thank_you', :as => 'thank_you'
   match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details
   match 'users/create_affiliate_details' => 'users#create_affiliate_details', :as => :create_affiliate_details
-  match 'affiliate-home' => 'affiliates#new', :as => :affiliate_home
+  match 'affiliate-home' => 'affiliates#home', :as => :affiliate_home
   match 'master-affiliate-signup' =>'affiliates#new_master', :as => :new_master
+  match 'standard-affiliate-signup' => 'affiliates#new_standard', :as => :new_standard
   match 'master-affiliate-earnings-calculator' => 'affiliates#affiliate_calculator', :as => :master_affiliate_earnings
   match 'calculate-commissions' => 'affiliates#calculate_commissions', :as => :calculate_commissions
+  match 'standard-affiliate-earnings-calculator' => 'affiliates#standard_affiliate_calculator', :as => :standard_affiliate_earnings
+  match 'standard-calculate-commissions' => 'affiliates#standard_calculate_commissions', :as => :standard_calculate_commissions
   match 'sub-affiliate/:master_id' => 'affiliates#sub_affiliate', :as => :sub_affiliate
   
   root :to => 'contacts#new'

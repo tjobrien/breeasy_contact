@@ -1,16 +1,17 @@
-<div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/opportunities">Opportunities</a> > Sub-Affiliate Signup</div>
+<div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/opportunities">Opportunities</a> > <a href="http://affiliate.breeasy.com">Breeasy Affiliate Programs</a> > Sub-Affiliate Signup</div>
 
 <div id="bd">
 	<div class="yui-g">
 	    <div class="yui-u first">
-		<h1>Sign Up Now!</h1>
-		<%= render :partial => 'signup_form', :locals => {:master => false, :master_id => @master_affiliate.id} %>
+		<h1>Free Sign Up Now!</h1>
+		<h3>Partner Affiliate Name:  <%= @master_affiliate.affiliate_detail.company %></h3>
+		<%= render :partial => 'affiliates/signup_form', :locals => {:master => false, :master_id => @master_affiliate.id} %>
 			<%= link_to "Already have a Login?", login_path %>
 			<%= render :partial => 'affiliates/quote' %>
 		 </div>
 	    <div class="yui-u">
 	    <h1>Breeasy Sub-Affiliate Program</h1>
-		<h3>Master Affiliate:  <%= @master_affiliate.affiliate_detail.company %></h3>
+		
 		<%= render :partial => 'affiliates/standard_affiliate' %>
 		
 
