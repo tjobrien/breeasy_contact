@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
   helper_method :logged_in
- # helper_method :route_request
 
    private
 
