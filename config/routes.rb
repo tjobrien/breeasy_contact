@@ -24,7 +24,7 @@ BreeasyContact::Application.routes.draw do
   match 'standard-calculate-commissions' => 'affiliates#standard_calculate_commissions', :as => :standard_calculate_commissions
   match 'sub-affiliate/:master_id' => 'affiliates#sub_affiliate', :as => :sub_affiliate
   
-  root :to => 'contacts#new'
+  root :to => 'affiliates#home'
   
   
 

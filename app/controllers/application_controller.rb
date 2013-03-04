@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
   helper_method :logged_in
-  helper_method :route_request
+ # helper_method :route_request
 
    private
 
@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
    end
    
    def route_request
-    if request.url == "http://affiliate.breeasy.com/"
-      redirect_to affiliate_home_path
+    if request.url == "http://contact.breeasy.com/"
+      redirect_to new_contact_path
     end
   
    end
