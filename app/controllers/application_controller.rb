@@ -14,11 +14,4 @@ class ApplicationController < ActionController::Base
        redirect_to root_path, :notice => "You must login to acccess this page."
      end
    end
-   
-   def route_request
-    if request.url == "http://contact.breeasy.com/"
-      redirect_to new_contact_path
-    end
-  
-   end
 end
