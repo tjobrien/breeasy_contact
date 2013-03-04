@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_filter :route_request, :only => :new
+ # before_filter :route_request, :only => :new
   def new
     @contact = Contact.new
 

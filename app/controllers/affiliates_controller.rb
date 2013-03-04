@@ -1,6 +1,6 @@
 class AffiliatesController < ApplicationController
   
-  before_filter :logged_in, :except => [:new, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate]
+  before_filter :logged_in, :except => [:new, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate, :standard_calculate_commissions, :standard_affiliate_calculator]
   
   
    def get_owner
