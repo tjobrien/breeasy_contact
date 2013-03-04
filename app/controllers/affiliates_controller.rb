@@ -1,6 +1,6 @@
 class AffiliatesController < ApplicationController
   
-  before_filter :logged_in, :except => [:new, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate, :standard_calculate_commissions, :standard_affiliate_calculator]
+  before_filter :logged_in, :except => [:home, :new_standard, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate, :standard_calculate_commissions, :standard_affiliate_calculator]
   
   
    def get_owner
@@ -92,5 +92,8 @@ class AffiliatesController < ApplicationController
     @total_count = params[:total_count].to_f
 
     
+  end
+  
+  def home
   end
 end
