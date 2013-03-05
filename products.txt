@@ -16,8 +16,8 @@ Product.create(:name => "Breeasy For Small Business - Deluxe", :new => 0.50, :re
 Program.create(:name => "Breeasy Billing, Invoicing, and Time Tracking App", :active => true, :url_path => "http://billing.breeasy.com/users/sign_up?referrer=",
 :notes => "This is a free web app.  When your users upgrade to a paid app, you'll earn commissions.")
 
-Program.create(:name => "InstaInvoice Mobile Billing App", :active => true, :url_path => "http://billing.breeasy.com/users/sign_up?referrer=",
-:notes => "This is a free mobile app.")
+Program.create(:name => "InstaInvoice Mobile Billing App", :active => true, :url_path => "http://billing.breeasy.com/mobile/index.html?referrer=",
+:notes => "This link is to the mobile version of the InstaInvoice App.  Since it's a free app, you will earn commissions as users upgrade to a paid Breeasy app.")
 
 Program.create(:name => "Breeasy For Small Business - Paid Plans", :active => true, :url_path => "http://app.breeasy.com/affiliate-direct?referrer=",
 :notes => "Rather than start with a 30-day free trial, use these links to have your customers choose a paid plan right from the start.")
