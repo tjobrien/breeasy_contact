@@ -4,7 +4,7 @@
 			<h1>Welcome to the Breeasy Affiliate Program<%= ", #{current_user.affiliate_detail.first_name}" unless current_user.affiliate_detail.nil? %></h1>
 		    <div class="yui-u first">
 			<% if !current_user.affiliate_detail.accepted_terms %>
-				<p>Oops!  You have not accepted the Breeasy Affiliate Program Terms and Conditions.  <%= link_to "Review and Accept now", edit_user_affiliate_path(current_user.id, current_user.affiliate_detail) %></p>
+				<p>Oops!  You have not accepted the Breeasy Affiliate Program Terms and Conditions.  <%= link_to "Review and Accept Terms now.", edit_user_affiliate_path(current_user.id, current_user.affiliate_detail) %></p>
 			<% end %>
 			<h2>Your Details</h2>
 			<table>
@@ -42,13 +42,13 @@
 			<h2>Recent Signups</h2>
 			<table>
 				<thead><tr><th>user email</th><th>App</th><th>Plan</th><th>Date</th></tr></thead>
-				<% current_user.get_breeasy_billing_referrals.each do |r| %>
-					<tr><td><%= r['email'] %></td><td>Breeasy Billing</td><td>Free Version</td><td><%= r['created_at'] %></td></tr>
-				<% end %>
 				<% current_user.get_bfsb_referrals.each do |r| %>
-				<tr><td><%= r['user']['email'] %></td><td>BFSB</td><td>30 Day Trial</td><td><%= r['user']['created_at'] %></td></tr>
-				
+					<tr><td><%= r['user']['email'] %></td><td>BFSB</td><td>30 Day Trial</td><td><%= r['user']['created_at'] %></td></tr>
 				<% end %>
+				<% current_user.get_breeasy_billing_referrals.each do |r| %>
+					<tr><td><%= r['email'] %></td><td>Breeasy Billing</td><td>Get Plan ID</td><td><%= r['created_at'] %></td></tr>
+				<% end %>
+
 				
 			</table>
 			<h2>Recent Paid Subscriptions</h2>
