@@ -35,9 +35,9 @@ class UsersController < ApplicationController
     
     def create_affiliate_details
       @affiliate_detail = AffiliateDetail.new(params[:affiliate_detail])
-      raise @affiliate_detail.inspect
+      #raise @affiliate_detail.inspect
       if @affiliate_detail.save
-        redirect_to user_affiliates_path(current_user.id)
+        
         #create affiliate_urls
         code = @affiliate_detail.affiliate_code
         #url_path = "http://app.breeasy.com/signup?referrer=#{code}"
@@ -49,6 +49,7 @@ class UsersController < ApplicationController
           url = user.urls.build(:program_description => p.name, :url => url_path, :link => link, :program_id => p.id)
           url.save
         end
+        redirect_to user_affiliates_path(current_user.id)
       else
         render 'new_affiliate_details'
       end
