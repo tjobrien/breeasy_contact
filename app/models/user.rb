@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
       nil
     end
   end
+ 
   
   def encrypt_password
     if password.present?

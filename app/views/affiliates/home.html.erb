@@ -3,6 +3,9 @@
 <div id="bd">
 	<h1>Easy Affiliate Earnings with Breeasy</h1>
 	<p>Breeasy offers two ways to earn by referring and selling Breeasy Apps.</p>
+	<% unless current_user.nil? %>
+		<%= link_to "Go to my Dashboard", user_affiliates_path(current_user.id) %>
+	<% end %>
 	<div class="yui-g">
 	    <div class="yui-u first">
 		<h1>Standard Affiliate Program</h1>

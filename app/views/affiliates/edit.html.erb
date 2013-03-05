@@ -26,6 +26,20 @@ Please be complete as possible.
   <tr><td><%= f.label :country %></td><td><%= f.text_field :country %></td></tr>
 
 </table>
-  
+<% if !current_user.affiliate_detail.accepted_terms %>
+	<% if current_user.master %>
+		<%= render :partial => "users/master_terms" %>
+		<%= render :partial => 'users/terms' %>
+	<% else %>
+		<%= render :partial => "users/terms" %>
+	<% end %>
+	<br>
+	<% if current_user.master %>
+		<%= f.check_box :accepted_terms %> I have read, understand, and accept the Terms of the Breeasy Master Affiliate Program.
+	<% else %>
+		<%= f.check_box :accepted_terms %> I have read, understand, and accept the Terms of the Breeasy Affiliate Program.
+	<% end %>
+<% end %>
+<br>
   <%= f.submit %>
 <% end %>

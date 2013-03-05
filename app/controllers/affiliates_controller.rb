@@ -21,7 +21,7 @@ class AffiliatesController < ApplicationController
 
   def index
     #need a method that returns all the users that have this users affiliate code in BFSB
-   code = current_user.affiliate_detail.affiliate_code
+  # code = current_user.affiliate_detail.affiliate_code
    #go to BFB and get all the users that have this code.
    
   # @bfb_users = some_url_at_bfb(code)

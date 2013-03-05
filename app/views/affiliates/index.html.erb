@@ -3,7 +3,9 @@
 		<div class="yui-g">
 			<h1>Welcome to the Breeasy Affiliate Program<%= ", #{current_user.affiliate_detail.first_name}" unless current_user.affiliate_detail.nil? %></h1>
 		    <div class="yui-u first">
-			
+			<% if !current_user.affiliate_detail.accepted_terms %>
+				<p>Oops!  You have not accepted the Breeasy Affiliate Program Terms and Conditions.  <%= link_to "Review and Accept now", edit_user_affiliate_path(current_user.id, current_user.affiliate_detail) %></p>
+			<% end %>
 			<h2>Your Details</h2>
 			<table>
 				<thead></thead>

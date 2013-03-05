@@ -11,7 +11,7 @@ class CreateAffiliateDetails < ActiveRecord::Migration
       t.string :url
       t.string :affiliate_code
       t.string :affiliate_url
-      t.boolean :accepted_terms
+      t.boolean :accepted_terms, :default => false
 
       t.timestamps
     end
