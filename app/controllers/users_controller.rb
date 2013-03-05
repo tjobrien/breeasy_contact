@@ -22,7 +22,7 @@ class UsersController < ApplicationController
           @master_affiliate = User.find(@user.master_id)
           render 'affiliates/sub_affiliate'
         else
-          render "affiliates/new"
+          render "affiliates/new_standard"
         end
       end
     end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     
     def create_affiliate_details
       @affiliate_detail = AffiliateDetail.new(params[:affiliate_detail])
-      #raise @affiliate_detail.inspect
+      raise @affiliate_detail.inspect
       if @affiliate_detail.save
         redirect_to user_affiliates_path(current_user.id)
         #create affiliate_urls
