@@ -99,15 +99,22 @@
 					<% end %>
 				</tbody>
 			</table>
-		
+		<h3>Your Breeasy for Small Business Deluxe Account</h3>
+			<% if current_user.get_breeasy_account %>
+			<p>Active</p>
+			<% else %>
+			<p><%= link_to "Get Your Account Now", "http://app.breeasy.com/master-affiliate?affiliate_code=#{current_user.affiliate_detail.affiliate_code}" %></p>
+			
+			<% end %>
+
 		<% end %>
 		<h2>Tips</h2>
 		<div class="yui-g">
 		    <div class="yui-u first">
-			Col 1
+		
 			</div>
 			<div class="yui-u">
-				Col 2
+				
 			</div>
 		</div>
 		

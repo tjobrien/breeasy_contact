@@ -41,4 +41,15 @@ class User < ActiveRecord::Base
     response = HTTParty.get("http://app.breeasy.com/api/v1/users.json?referrer=#{ref_code}")
     return response
   end
+  def get_breeasy_account
+    retval = false
+  ref_code = self.affiliate_detail.affiliate_code
+  response = HTTParty.get("http://app.breeasy.com/api/v1/user/master_affiliate.json?affiliate_code=#{ref_code}")
+  unless response['user'].nil?
+    if response['user']['master_affiliate_id'] == ref_code
+      retval = true
+    end
+  end
+  return retval
+  end
 end
