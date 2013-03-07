@@ -46,7 +46,7 @@
 					<tr><td><%= r['user']['email'] %></td><td>BFSB</td><td>Get Plan ID</td><td><%= r['user']['created_at'] %></td></tr>
 				<% end %>
 				<% current_user.get_breeasy_billing_referrals.each do |r| %>
-					<tr><td><%= r['email'] %></td><td>Breeasy Billing</td><td>Free App</td><td><%= r['created_at'] %></td></tr>
+					<tr><td><%= r['email'] %></td><td><%= r['source'] %></td><td>Free App</td><td><%= r['created_at'] %></td></tr>
 				<% end %>
 
 				
