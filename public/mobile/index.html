@@ -1,0 +1,212 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<title>InstaInvoice Mobile</title> 
+	<!-- <link rel="stylesheet" href="themes/auto-reg.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" /> -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" type="text/css">
+	<link rel="stylesheet" href="css/auto_reg.css" type="text/css">
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script src="js/main.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).bind('pageinit', function() {
+	
+		user = JSON.parse(localStorage.getItem('user'));
+		console.log(user);
+		if(user){
+			$("#status").text("Welcome " + user['email']);
+			getUserDetails();
+		}
+		else {
+			$("#status").text("You will need to login on this device");
+		}
+		//login 
+		$("#login_form").submit(function(event){
+		//var error = false;
+		$("#response3").text("");
+		$.mobile.showPageLoadingMsg("a", "Sending details to the server...", "false");
+	    var str = $("#email_address").val();
+		var pwd = $("#password").val();
+		console.log("data:  " + str);
+		
+		$.ajax({
+	        url: "../api/v1/user/login.json?email=" + str + "&password=" + pwd,
+	        type: "get",
+	       // data: str,
+	        dataType: "json",
+	        
+	       	// callback handler that will be called on success
+	        success: function(response, textStatus, jqXHR){
+	            // log a message to the console
+	            console.log("Hooray, it worked!");
+				//$('#results').text("it worked");
+				user = response;
+				console.log(user);
+	        },
+	        // callback handler that will be called on error
+	        error: function(jqXHR, textStatus, errorThrown){
+	            // log the error to the console
+	            console.log(
+	                "The following error occurred: "+
+	                textStatus);
+				console.log("Error "  + jqXHR)
+				error = jqXHR;
+				// $.each(error, function(index, value) {
+				// 	console.log("error_index " + index);
+				// });
+				var error_text = $.parseJSON(error['responseText']);
+				//console.log(error_text.errors.email[0]);
+
+	        },
+	        // callback handler that will be called on completion
+	        // which means, either on success or error
+	        complete: function(){
+	            if(user){
+					localStorage.setItem('user', JSON.stringify(user));
+					$("#email_address").val("");
+					$("#password").val("");
+					$("#response3").text("Your have successfully logged in and are now synced.");
+					getUserDetails();
+					//getFileSystem();
+				}
+				else
+				{
+					$("#response3").text("Sorry, your credentials could not be found.");
+				}
+		        $.mobile.hidePageLoadingMsg();
+				
+	        $.mobile.hidePageLoadingMsg();
+	        
+	        
+	     	} //complete
+		
+	    	}); //ajax
+		
+		return false;
+		
+		});
+		$("#instainvoice_signup_form").unbind();
+		$("#instainvoice_signup_form").submit(function(event){
+				//var error = false;
+				setup_app_user(0);
+				return false;
+
+		});
+
+		
+		});//bind
+		
+	
+	</script>
+</head> 
+
+<body>
+	<div data-role="page" id="home_page"> 
+
+		<div data-role="header" data-theme="b">
+		  	<h1>Breeasy Affiliate Program</h1>			
+		</div><!-- /header -->
+		<div data-role="content">
+		<h3 id="status"></h3>
+			<div data-role="controlgroup">
+				<a href="#instainvoice_signup" data-role="button">InstaInvoice Signup</a>
+				<a href="#breeasy_signup" data-role="button">Breeasy Free Trial</a>
+				<a href="#breeasy_paid_signup" data-role="button">Breeasy Paid Plans</a>
+				<a href="#login" data-role="button">Login</a>
+				<a href="#about.html" data-role="button">About</a>
+			</div>
+
+		</div> <!-- /content -->
+		<div data-role="footer" data-theme="b">
+		  <h1>Making Business Easy</h1>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	<div data-role="page" id="instainvoice_signup">
+	  <div data-role="header" data-theme="b">
+		   <a href="index.html" data-icon="home">Home</a>
+		  <h2>InstaInvoice and Billing App</h2>
+	  </div><!-- /header -->
+	  <div data-role="content">
+		<p>Enter your customer's email address and password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.
+			<h2 id="instainvoice_response"></h2>
+			<form id="instainvoice_signup_form">
+			<div data-role="fieldcontain">
+			<label for="user[email]">Email Address:</label>
+			<input type="text" name="user[email]" id="user[email]" value="" />
+			<label for="user[password]">Password:</label>
+			<input type="password" name="user[password]" id="user[password]" value="" />
+			<label for="user[referrer]">Referral Code:</label>
+			<input type="text" name="user[referrer]" id="user_referrer" value=""/>
+			<input type="hidden" name="user[app]" id="user_app" value="instainvoice"/>
+
+			<br>
+			<input type="submit" value="Signup" />
+
+			</div><!-- /fieldcontain -->
+			</form>
+		</div> <!-- /content -->
+	 	<div data-role="footer" data-theme="b">
+		  <h1>It's Easy With Breeasy</h1>
+		</div><!-- /footer --> 	
+
+	</div> <!--/page-->
+	
+	<div data-role="page" id="login">
+		<div data-role="header" data-theme="b">
+		   <a href="index.html" data-role="button" data-icon="home">Home</a>
+		  <h1>Breeasy Affiliate Login</h1>
+		  <a href="edit_account.html" data-role="button" data-icon="gear">Account</a>
+	  	</div><!-- /header -->
+		<div data-role="content">
+	  	<h2 id="response3"></h2>
+	  	<table>
+				  <caption>Affiliate Details</caption>
+				  <tbody>
+					<tr>
+				      <th>Email:</th><td colspan="2" id="user_name"></td>
+				    </tr>
+				    <tr>
+				 	  <th>Id:</th><td id="id"></td>
+				      <th>Synced:</th><td id="sync_status"></td>
+				    </tr>
+				   	<tr>
+				 	  <th>First Name:</th><td id="first_name"></td>
+				      <th>Last Name:</th><td id="last_name"></td>
+				    </tr>
+				    <tr>
+				 	  <th>Company:</th><td colspan="2" id="company"></td>
+				 	</tr>
+				 	<tr>
+				      <th>Affiliate Type:</th><td id="affiliate_type"></td>
+					  <th>Referral Code:</th><td id="affiliate_code"></td>
+				    
+				    </tr>
+					</tbody>
+		</table>
+		<p>Enter your Breeasy affiliate details</p>
+
+			<form id="login_form">
+				<div data-role="fieldcontain">
+					<label for="email_address">Email:</label>
+					<input type="text" name="email_address" id="email_address" placeholder="required" />
+					<label for="password">Password:</label>
+					<input type="password" name="password" id="password" placeholder="required"/>
+					<input type="submit" value="Login" />
+					<br>
+				</div><!-- /fieldcontain -->
+			</form>
+			<p>Not a Breeasy Affiliate? <a href=#create_affiliate_account>Create your Free Account!</a></p>
+
+		</div> <!-- /content -->
+		<div data-role="footer" data-theme="b">
+		  <h1>A Free App From Breeasy.com</h1>
+		</div><!-- /footer --> 	
+
+	</div> <!--/page-->
+</body>
+</html>

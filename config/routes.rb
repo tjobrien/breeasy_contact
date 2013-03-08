@@ -11,6 +11,12 @@ BreeasyContact::Application.routes.draw do
   resources :sessions
   resources :contacts
   
+  namespace :api do
+      namespace :v1 do
+        resources :users, :apps
+      end
+    end
+  
   
   match 'thank_you/:id' => 'contacts#thank_you', :as => 'thank_you'
   match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details
@@ -23,6 +29,7 @@ BreeasyContact::Application.routes.draw do
   match 'standard-affiliate-earnings-calculator' => 'affiliates#standard_affiliate_calculator', :as => :standard_affiliate_earnings
   match 'standard-calculate-commissions' => 'affiliates#standard_calculate_commissions', :as => :standard_calculate_commissions
   match 'sub-affiliate/:master_id' => 'affiliates#sub_affiliate', :as => :sub_affiliate
+  match 'api/v1/user/login' => 'api/v1/users#login'
   
   root :to => 'affiliates#home'
   
