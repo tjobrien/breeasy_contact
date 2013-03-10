@@ -40,6 +40,7 @@ module Api
       # end
       
       def create
+        respond_with  user = User.create(params[:user])
       end
       
       def login

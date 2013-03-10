@@ -4,11 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<title>InstaInvoice Mobile</title> 
+	<title>Breeasy Affiliate Program | Mobile site</title> 
 	<!-- <link rel="stylesheet" href="themes/auto-reg.min.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" /> -->
 	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" type="text/css">
-	<link rel="stylesheet" href="css/auto_reg.css" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/jquery.mobile-1.2.0.min.js"></script>
 	<script src="js/main.js"></script>
@@ -97,9 +96,17 @@
 				return false;
 
 		});
+		
+		$("#sub_signup_form").unbind();
+		$("#sub_signup_form").submit(function(event){
+				//var error = false;
+				setup_sub_affiliate();
+				return false;
+
+		});
 
 		
-		});//bind
+});//bind
 		
 	
 	</script>

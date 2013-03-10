@@ -2,6 +2,7 @@ var user = null;
 var user_details = null;
 var affiliate_code = null;
 var app_user = null;
+var sub_affiliate = null;
 
 function getUserDetails(){
 	user_details = null;
@@ -26,7 +27,7 @@ function getUserDetails(){
 	                "The following error occurred: "+
 	                textStatus);
 				console.log("Error "  + jqXHR)
-				error = jqXHR;
+				errors = jqXHR;
 
 	        },
 	        // callback handler that will be called on completion
@@ -111,6 +112,7 @@ function getUserDetails(){
 				}
 				else {
 					alert("Successfully Created An InstaInvoice Account and an email has been sent to " + app_user.email);
+					$.mobile.changePage( "#home_page", { transition: "slideup"} )
 				}
 		
 			
@@ -119,6 +121,71 @@ function getUserDetails(){
 			else
 			{
 				alert("Oops - An error occurred");
+
+			}
+	        $.mobile.hidePageLoadingMsg();
+
+
+	     	} //complete
+
+	    	}); //ajax
+		
+	}
+	
+	
+	function setup_sub_affiliate(){
+			$.mobile.showPageLoadingMsg("a", "Sending details to the server...", "false");
+
+	    	var str = $("#sub_signup_form").serializeArray();
+			var errors = null;
+			
+		console.log("data:  " + str);
+
+		$.ajax({
+	        url: "../api/v1/users.json",
+	        type: "post",
+	        data: str,
+	        dataType: "json",
+
+	       	// callback handler that will be called on success
+	        success: function(response, textStatus, jqXHR){
+	            // log a message to the console
+				console.log("Success " + response);
+
+				sub_affiliate = response;
+				console.log(sub_affiliate);
+	        },
+	        // callback handler that will be called on error
+
+
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus + ' - ' + errorThrown);
+                for (var i in jqXHR) {
+                    console.log(i + ' = ' + jqXHR[i]);
+                }
+				errors = jqXHR;
+            },
+	        // callback handler that will be called on completion
+	        // which means, either on success or error
+	        complete: function(){
+	        if(sub_affiliate){
+				alert("Sub affiliate created and an email has been sent to " + sub_affiliate.email);
+				$.mobile.changePage( "#home_page", { transition: "slideup"} )
+			
+			
+			}
+			else
+			{
+					if (errors){
+							var error_text = $.parseJSON(errors['responseText']);
+							//console.log(error_text.errors.email[0]);
+							if(error_text.errors.email != null){
+								alert("Email " + error_text.errors.email[0]);
+							}
+							if(error_text.errors.password != null){
+								alert("Password " + error_text.errors.password[0]);
+							}
+					}
 
 			}
 	        $.mobile.hidePageLoadingMsg();
