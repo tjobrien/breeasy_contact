@@ -30,6 +30,7 @@ BreeasyContact::Application.routes.draw do
   match 'standard-calculate-commissions' => 'affiliates#standard_calculate_commissions', :as => :standard_calculate_commissions
   match 'sub-affiliate/:master_id' => 'affiliates#sub_affiliate', :as => :sub_affiliate
   match 'api/v1/user/login' => 'api/v1/users#login'
+  match 'users/create_contact' => 'users#create_contact'
   
   root :to => 'affiliates#home'
   

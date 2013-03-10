@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :logged_in, :except => [:new, :create]
+  before_filter :logged_in, :except => [:new, :create, :create_contact]
   
   def new
       @user = User.new
@@ -55,4 +55,15 @@ class UsersController < ApplicationController
       end
       
     end
+    def create_contact
+        @ml = ContactList.new(params[:mail_list])
+        #raise @ml.inspect
+          respond_to do |format|
+             if @ml.save
+               format.json { render json: @ml }
+             else
+               format.json { render json: @ml.errors }
+             end
+           end
+     end
 end

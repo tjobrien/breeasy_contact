@@ -8,7 +8,11 @@ module Api
       def create
      
        if params[:user][:app] == "instainvoice"
-         options = {:body => {:user =>  {:email => params[:user][:email], :password => params[:user][:password]}}}
+         options = {:body => {:user =>  {
+                              :email => params[:user][:email], :password => params[:user][:password], 
+                              :referrer => params[:user][:referrer], :source => "InstaInvoice"}
+                            }
+                          }
          resp = HTTParty.post("http://billing.breeasy.com/api/v1/users.json", options)
          #raise resp.body.inspect
        elsif params[:user][:app] == "breeasy_free"

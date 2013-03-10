@@ -39,6 +39,9 @@ module Api
       #   respond_with User.destroy(params[:id])
       # end
       
+      def create
+      end
+      
       def login
         user = User.authenticate(params[:email], params[:password])
       

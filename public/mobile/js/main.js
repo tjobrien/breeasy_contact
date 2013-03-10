@@ -1,5 +1,5 @@
 var user = null;
-var user_detail = null;
+var user_details = null;
 var affiliate_code = null;
 var app_user = null;
 
@@ -53,6 +53,7 @@ function getUserDetails(){
 			$("#affiliate_code").text(user_details['affiliate_code']);
 			affiliate_code = user_details['affiliate_code'];
 			$("#user_referrer").val(affiliate_code);
+			$("#user_master_id").val(user.id)
 			
 			
 			}
@@ -109,7 +110,7 @@ function getUserDetails(){
 					alert("Email " + app_user.errors.email + " Password " + app_user.errors.password);
 				}
 				else {
-					alert("Successfully Created An InstaInvoice Account.");
+					alert("Successfully Created An InstaInvoice Account and an email has been sent to " + app_user.email);
 				}
 		
 			

@@ -117,6 +117,7 @@
 				<a href="#instainvoice_signup" data-role="button">InstaInvoice Signup</a>
 				<a href="#breeasy_signup" data-role="button">Breeasy Free Trial</a>
 				<a href="#breeasy_paid_signup" data-role="button">Breeasy Paid Plans</a>
+				<a href="#sub_signup" data-role="button">Sub or Sales Rep</a>
 				<a href="#login" data-role="button">Login</a>
 				<a href="#about.html" data-role="button">About</a>
 			</div>
@@ -132,7 +133,7 @@
 		  <h2>InstaInvoice and Billing App</h2>
 	  </div><!-- /header -->
 	  <div data-role="content">
-		<p>Enter your customer's email address and password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.
+		<p>Enter your customer's email address and password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.</p>
 			<h2 id="instainvoice_response"></h2>
 			<form id="instainvoice_signup_form">
 			<div data-role="fieldcontain">
@@ -205,6 +206,33 @@
 		</div> <!-- /content -->
 		<div data-role="footer" data-theme="b">
 		  <h1>A Free App From Breeasy.com</h1>
+		</div><!-- /footer --> 	
+
+	</div> <!--/page-->
+	<div data-role="page" id="sub_signup">
+	  <div data-role="header" data-theme="b">
+		   <a href="index.html" data-icon="home">Home</a>
+		  <h2>Sub Affiliate/Sales Rep</h2>
+	  </div><!-- /header -->
+	  <div data-role="content">
+		<p>Enter your sub affiliate or rep's details to immediately create their free affiliate account.</p>
+			<h2 id="sub_response"></h2>
+			<form id="sub_signup_form">
+			<div data-role="fieldcontain">
+			<label for="user[email]">Email Address:</label>
+			<input type="text" name="user[email]" id="user[email]" value="" />
+			<label for="user[password]">Password:</label>
+			<input type="password" name="user[password]" id="user[password]" value="" />
+			<input type="text" name="user[master_id]" id="user_master_id" value=""/>
+
+			<br>
+			<input type="submit" value="Signup" />
+
+			</div><!-- /fieldcontain -->
+			</form>
+		</div> <!-- /content -->
+	 	<div data-role="footer" data-theme="b">
+		  <h1>It's Easy With Breeasy</h1>
 		</div><!-- /footer --> 	
 
 	</div> <!--/page-->
