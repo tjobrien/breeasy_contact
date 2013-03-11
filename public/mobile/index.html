@@ -22,7 +22,7 @@
 			getUserDetails();
 		}
 		else {
-			$("#status").text("You will need to login on this device");
+			$("#status").text("You will need to login on this device.");
 		}
 		//login 
 		$("#login_form").submit(function(event){
@@ -116,7 +116,7 @@
 	<div data-role="page" id="home_page"> 
 
 		<div data-role="header" data-theme="b">
-		  	<h1>Breeasy Affiliate Program</h1>			
+		  	<h2>Breeasy Affiliate Program</h2>			
 		</div><!-- /header -->
 		<div data-role="content">
 		<h3 id="status"></h3>
@@ -230,7 +230,7 @@
 			<input type="text" name="user[email]" id="user[email]" value="" />
 			<label for="user[password]">Password:</label>
 			<input type="password" name="user[password]" id="user[password]" value="" />
-			<input type="text" name="user[master_id]" id="user_master_id" value=""/>
+			<input type="hidden" name="user[master_id]" id="user_master_id" value=""/>
 
 			<br>
 			<input type="submit" value="Signup" />
