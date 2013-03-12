@@ -19,5 +19,6 @@ class AffiliateMailer < ActionMailer::Base
         @url  = "http://affiliate.breeasy.com"
         @master = User.find @user.master_id
         mail(:to => user.email, :subject => "Your New Breeasy Affiliate Details")
-   end
+  end
+  
 end
