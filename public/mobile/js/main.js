@@ -55,6 +55,7 @@ function getUserDetails(){
 			affiliate_code = user_details['affiliate_code'];
 			$("#user_referrer").val(affiliate_code);
 			$("#user_master_id").val(user.id)
+			$("#status").text("Welcome " + user['email']);
 			
 			
 			}

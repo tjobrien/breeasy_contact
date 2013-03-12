@@ -14,6 +14,13 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         session[:user_id] = @user.id
+        if @user.master
+          AffiliateMailer.welcome_master(@user).deliver
+        elsif @user.master_id
+          AffiliateMailer.welcome_sub_standard(@user).deliver
+        else
+          AffiliateMailer.welcome_standard(@user)deliver
+        end
         redirect_to new_affiliate_details_path, :notice => "Signed up!"
       else
         if @user.master

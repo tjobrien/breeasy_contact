@@ -14,17 +14,17 @@
 
 	<script type="text/javascript" charset="utf-8">
 		$(document).bind('pageinit', function() {
-	
+	//	alert("Bind");
 		user = JSON.parse(localStorage.getItem('user'));
 		console.log(user);
 		if(user){
-			$("#status").text("Welcome " + user['email']);
 			getUserDetails();
 		}
 		else {
 			$("#status").text("You will need to login on this device.");
 		}
 		//login 
+		$("#login_form").unbind();
 		$("#login_form").submit(function(event){
 		//var error = false;
 		$("#response3").text("");
@@ -104,7 +104,27 @@
 				return false;
 
 		});
-
+		
+		$("#logout").live('pageshow', function(event){
+			localStorage.clear();
+			$("#logout_response").text("Logged Out")
+			var user = null;
+			var user_details = null;
+			var affiliate_code = null;
+			var app_user = null;
+			var sub_affiliate = null;
+					$("#first_name").text("");
+					$("#last_name").text("");
+					$("#company").text("");
+					$("#id").text("");
+					$("#user_name").text("");
+					$("#affiliate_type").text("");
+					$("#affiliate_code").text("");
+					$("#user_referrer").val("");
+					$("#user_master_id").val("")
+					$("#status").text("You will need to login on this device.");
+			
+		});
 		
 });//bind
 		
@@ -126,12 +146,13 @@
 				<a href="#breeasy_paid_signup" data-role="button">Breeasy Paid Plans</a>
 				<a href="#sub_signup" data-role="button">Sub Affiliate/Rep Signup</a>
 				<a href="#login" data-role="button">Login</a>
+				<a href="#logout" data-role="button">Logout</a>
 				<a href="#about.html" data-role="button">About</a>
 			</div>
 
 		</div> <!-- /content -->
 		<div data-role="footer" data-theme="b">
-		  <h1>Making Business Easy</h1>
+		  <h1>Making Small Business Easy</h1>
 		</div><!-- /footer -->
 	</div><!-- /page -->
 	<div data-role="page" id="instainvoice_signup">
@@ -140,7 +161,7 @@
 		<h1>InstaInvoice Signup</h1>
 	  </div><!-- /header -->
 	  <div data-role="content">
-		<p>Enter your customer's email address and password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.</p>
+		<p>Enter your customer's email address and create a temporary password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.</p>
 			<h2 id="instainvoice_response"></h2>
 			<form id="instainvoice_signup_form">
 			<div data-role="fieldcontain">
@@ -168,35 +189,10 @@
 		<div data-role="header" data-theme="b">
 		  <a href="index.html" data-role="button" data-icon="home">Home</a>
 		 	<h1>Login</h1>
-		  <a href="edit_account.html" data-role="button" data-icon="gear">Account</a>
 	  	</div><!-- /header -->
 		<div data-role="content">
 	  	<h2 id="response3"></h2>
-	  	<table>
-				  <caption>Affiliate Details</caption>
-				  <tbody>
-					<tr>
-				      <th>Email:</th><td colspan="2" id="user_name"></td>
-				    </tr>
-				    <tr>
-				 	  <th>Id:</th><td id="id"></td>
-				      <th>Synced:</th><td id="sync_status"></td>
-				    </tr>
-				   	<tr>
-				 	  <th>First Name:</th><td id="first_name"></td>
-				      <th>Last Name:</th><td id="last_name"></td>
-				    </tr>
-				    <tr>
-				 	  <th>Company:</th><td colspan="2" id="company"></td>
-				 	</tr>
-				 	<tr>
-				      <th>Affiliate Type:</th><td id="affiliate_type"></td>
-					  <th>Referral Code:</th><td id="affiliate_code"></td>
-				    
-				    </tr>
-					</tbody>
-		</table>
-		<p>Enter your Breeasy affiliate details</p>
+		<p>Enter your Breeasy Affiliate Program email and password:</p>
 
 			<form id="login_form">
 				<div data-role="fieldcontain">
@@ -208,11 +204,39 @@
 					<br>
 				</div><!-- /fieldcontain -->
 			</form>
-			<p>Not a Breeasy Affiliate? <a href=#create_affiliate_account>Create your Free Account!</a></p>
-
+			<p>Your Affiliate Account Details</p>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Email:</strong></div>
+			<div class="ui-block-b" id="user_name"></div>
+		</div><!-- /grid-a -->
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Affiliate Id:</strong></div>
+			<div class="ui-block-b" id="id"></div>
+		</div><!-- /grid-a -->
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>First Name:</strong></div>
+			<div class="ui-block-b" id="first_name"></div>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Last Name:</strong></div>
+			<div class="ui-block-b" id="last_name"></div>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Company:</strong></div>
+			<div class="ui-block-b" id="company"></div>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Affiliate Type:</strong></div>
+			<div class="ui-block-b" id="affiliate_type"></div>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><strong>Referral Code:</strong></div>
+			<div class="ui-block-b" id="affiliate_code"></div>
+		</div>
+		                             
 		</div> <!-- /content -->
 		<div data-role="footer" data-theme="b">
-		  <h1>Earn with Breeasy Affiliates</h1>
+		  <h1>Earn with Breeasy</h1>
 		</div><!-- /footer --> 	
 
 	</div> <!--/page-->
@@ -237,6 +261,20 @@
 
 			</div><!-- /fieldcontain -->
 			</form>
+		</div> <!-- /content -->
+	 	<div data-role="footer" data-theme="b">
+		  <h1>It's Easy With Breeasy</h1>
+		</div><!-- /footer --> 	
+
+	</div> <!--/page-->
+	<div data-role="page" id="logout">
+	  <div data-role="header" data-theme="b">
+		   <a href="index.html" data-icon="home">Home</a>
+		  <h1>Logout</h1>
+	  </div><!-- /header -->
+	  <div data-role="content">
+			<h2 id="logout_response"></h2>
+			
 		</div> <!-- /content -->
 	 	<div data-role="footer" data-theme="b">
 		  <h1>It's Easy With Breeasy</h1>
