@@ -4,19 +4,19 @@ class AffiliateMailer < ActionMailer::Base
   
   def welcome_master(user)
       @user = user
-       @url  = "http://affiliate.breeasy.com"
+       @url  = "http://affiliate.breeasy.com/login"
        mail(:to => user.email, :subject => "Your New Breeasy Master Affiliate Details")
   end
   
   def welcome_standard(user)
       @user = user
-       @url  = "http://affiliate.breeasy.com"
+       @url  = "http://affiliate.breeasy.com/login"
        mail(:to => user.email, :subject => "Your New Breeasy Affiliate Details")
   end
   
   def welcome_sub_standard(user)
        @user = user
-        @url  = "http://affiliate.breeasy.com"
+        @url  = "http://affiliate.breeasy.com/login"
         @master = User.find @user.master_id
         mail(:to => user.email, :subject => "Your New Breeasy Affiliate Details")
   end
