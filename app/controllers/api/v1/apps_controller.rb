@@ -19,7 +19,9 @@ module Api
         retval = JSON.parse(resp.body)
        elsif params[:user][:app] == "bfsb"
          
-         options = {:body => {:user =>  {:email => params[:user][:email], :password => params[:user][:password], 
+         options = {:body => {:user =>  {:email => params[:user][:email], :password => params[:user][:password],
+                              :first_name => params[:user][:first_name], :last_name => params[:user][:last_name],
+                              :title => params[:user][:title],
                               :username => params[:user][:username],:refferal_code => params[:user][:referral_code]}
                             },
                             :query => {:plan_id => params[:plan_id]}
