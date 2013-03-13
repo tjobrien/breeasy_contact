@@ -97,6 +97,14 @@
 
 		});
 		
+		$("#breeasy_signup_form").unbind();
+		$("#breeasy_signup_form").submit(function(event){
+				//var error = false;
+				setup_app_user(1);
+				return false;
+
+		});
+		
 		$("#sub_signup_form").unbind();
 		$("#sub_signup_form").submit(function(event){
 				//var error = false;
@@ -142,8 +150,7 @@
 		<h3 id="status"></h3>
 			<div data-role="controlgroup">
 				<a href="#instainvoice_signup" data-role="button">InstaInvoice Signup</a>
-				<a href="#breeasy_signup" data-role="button">Breeasy Free Trial</a>
-				<a href="#breeasy_paid_signup" data-role="button">Breeasy Paid Plans</a>
+				<a href="#breeasy_signup" data-role="button">Breeasy For Small Business</a>
 				<a href="#sub_signup" data-role="button">Sub Affiliate/Rep Signup</a>
 				<a href="#login" data-role="button">Login</a>
 				<a href="#logout" data-role="button">Logout</a>
@@ -161,7 +168,7 @@
 		<h1>InstaInvoice Signup</h1>
 	  </div><!-- /header -->
 	  <div data-role="content">
-		<p>Enter your customer's email address and create a temporary password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.</p>
+		<p>Enter your customer's email address and create a password to immediately create their free account.  Your customer can access both the mobile and web apps with this email and password combination.</p>
 			<h2 id="instainvoice_response"></h2>
 			<form id="instainvoice_signup_form">
 			<div data-role="fieldcontain">
@@ -264,6 +271,56 @@
 		</div> <!-- /content -->
 	 	<div data-role="footer" data-theme="b">
 		  <h1>It's Easy With Breeasy</h1>
+		</div><!-- /footer --> 	
+
+	</div> <!--/page-->
+	<div data-role="page" id="breeasy_signup">
+	  <div data-role="header" data-theme="b">
+		   <a href="index.html" data-icon="home">Home</a>
+		  <h1>Breeasy App</h1>
+	  </div><!-- /header -->
+	  <div data-role="content">
+		<p>Enter your customer's email address, create a password and choose a Breeasy for Small Business Plan.  An email will be sent to the user with additional instructions.</p>
+		<p>Items marked with an * are required.</p>
+			<h2 id="breeasy_response"></h2>
+			<form id="breeasy_signup_form">
+			<div data-role="fieldcontain">
+			<label for="user[username]">UserName*:</label>
+			<input type="text" name="user[username]" id="user[username]" value="" />
+			<label for="user[email]">Email Address*:</label>
+			<input type="text" name="user[email]" id="user[email]" value="" />
+			<label for="user[password]">Password*:</label>
+			<input type="password" name="user[password]" id="user[password]" value="" />
+			<label for="user[first_name]">First Name:</label>
+			<input type="text" name="user[first_name]" id="user[first_name]" value="" />
+			<label for="user[last_name]">Last Name:</label>
+			<input type="text" name="user[last_name]" id="user[last_name]" value="" />
+			<label for="user[title]">Email Address:</label>
+			<input type="text" name="user[title]" id="user[title]" value="" />
+			<fieldset data-role="controlgroup">
+				<legend>Choose a Breeasy App Plan:</legend>
+			     	<input type="radio" name="plan_id" id="plan_id_7" value="7" checked="checked" />
+			     	<label for="plan_id_7">30-Day Free Trial</label>
+
+			     	<input type="radio" name="plan_id" id="plan_id_5" value="4"  />
+			     	<label for="plan_id_5">Breeasy Standard Annual</label>
+
+			     	<input type="radio" name="plan_id" id="plan_id_6" value="6"  />
+			     	<label for="plan_id_6">Breeasy Deluxe Annual</label>
+			</fieldset>
+			<label for="user[referrer]">Referral Code:</label>
+			<input type="text" name="user[referral_code]" id="breeasy_user_referrer" value=""/>
+			
+			<input type="hidden" name="user[app]" id="user_app" value="bfsb"/>
+
+			<br>
+			<input type="submit" value="Signup" />
+
+			</div><!-- /fieldcontain -->
+			</form>
+		</div> <!-- /content -->
+	 	<div data-role="footer" data-theme="b">
+		  <h1>Making small business Easy</h1>
 		</div><!-- /footer --> 	
 
 	</div> <!--/page-->

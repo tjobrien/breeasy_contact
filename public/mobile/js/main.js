@@ -5,8 +5,6 @@ var app_user = null;
 var sub_affiliate = null;
 
 function getUserDetails(){
-	user_details = null;
-	affiliate_code = null;
 	$.ajax({
 	        url: "../api/v1/users/" + user['id'] + ".json",
 	        type: "get",
@@ -54,6 +52,7 @@ function getUserDetails(){
 			$("#affiliate_code").text(user_details['affiliate_code']);
 			affiliate_code = user_details['affiliate_code'];
 			$("#user_referrer").val(affiliate_code);
+			$("#breeasy_user_referrer").val(affiliate_code);
 			$("#user_master_id").val(user.id)
 			$("#status").text("Welcome " + user['email']);
 			
@@ -73,11 +72,13 @@ function getUserDetails(){
 	 }
 	
 	function setup_app_user(form_name){
-		
-		console.log(form_name);
+	
 		$.mobile.showPageLoadingMsg("a", "Sending details to the server...", "false");
 		if(form_name == 0){
 	    	var str = $("#instainvoice_signup_form").serializeArray();
+		}
+		else {
+			var str = $("#breeasy_signup_form").serializeArray();
 		}
 		console.log("data:  " + str);
 		
@@ -100,20 +101,39 @@ function getUserDetails(){
 
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus + ' - ' + errorThrown);
-                for (var i in jqXHR) {
-                    console.log(i + ' = ' + jqXHR[i]);
-                }
+                // for (var i in jqXHR) {
+                //     console.log(i + ' = ' + jqXHR[i]);
+                // }
             },
 	        // callback handler that will be called on completion
 	        // which means, either on success or error
 	        complete: function(){
 	        if(app_user){
-				if (app_user.errors){
-					alert("Email " + app_user.errors.email + " Password " + app_user.errors.password);
-				}
-				else {
+				if(form_name == 0){
+					if (app_user.errors){
+						alert("Email " + app_user.errors.email + " Password " + app_user.errors.password);
+					}
+					else {
 					alert("Successfully Created An InstaInvoice Account and an email has been sent to " + app_user.email);
 					$.mobile.changePage( "#home_page", { transition: "slideup"} )
+					}
+				}
+				else {
+					if (app_user.password){
+						alert("Password " + app_user.password);
+					}
+					else if (app_user.email){
+						alert("Email " + app_user.email);
+					}
+					else if (app_user.username){
+						alert("UserName" + app_user.username);
+					}
+					else {
+						alert("Successfully Created An InstaInvoice Account and an email has been sent to " + app_user.user.email);
+						$.mobile.changePage( "#home_page", { transition: "slideup"} )
+						
+					}
+					
 				}
 		
 			

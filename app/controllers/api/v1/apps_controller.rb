@@ -12,16 +12,24 @@ module Api
                               :email => params[:user][:email], :password => params[:user][:password], 
                               :referrer => params[:user][:referrer], :source => "InstaInvoice"}
                             }
+                            
                           }
          resp = HTTParty.post("http://billing.breeasy.com/api/v1/users.json", options)
          #raise resp.body.inspect
-       elsif params[:user][:app] == "breeasy_free"
+        retval = JSON.parse(resp.body)
+       elsif params[:user][:app] == "bfsb"
          
-       elsif params[:user][:app] == "breeasy_paid"
+         options = {:body => {:user =>  {:email => params[:user][:email], :password => params[:user][:password], 
+                              :username => params[:user][:username],:refferal_code => params[:user][:referral_code]}
+                            },
+                            :query => {:plan_id => params[:plan_id]}
+                          }
+                          resp = HTTParty.post("http://app.breeasy.com/api/v1/users.json", options)
+        retval = JSON.parse(resp.body)
          
        end
        # user = User.find 35
-       retval = JSON.parse(resp.body)
+      
        respond_to do |format|
          format.json { render :json => retval }  # note, no :location or :status options
        end

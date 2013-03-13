@@ -13,3 +13,9 @@ elsif @user.master_id
 else
   AffiliateMailer.welcome_standard(@user)deliver
 end
+
+
+//generic code for posting to app.breeasy/api
+
+
+options = {:body => {:user =>  {:email => "tobrien@aldsjsf.com", :password => "tester", :username => "virgin",:refferal_code => "breeasy"}}, :query => {:plan_id => "7"}}
