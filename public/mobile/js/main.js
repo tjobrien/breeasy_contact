@@ -126,10 +126,10 @@ function getUserDetails(){
 						alert("Email " + app_user.email);
 					}
 					else if (app_user.username){
-						alert("UserName" + app_user.username);
+						alert("UserName " + app_user.username);
 					}
 					else {
-						alert("Successfully Created An InstaInvoice Account and an email has been sent to " + app_user.user.email);
+						alert("Successfully created Breeasy for Small Business Account and an email has been sent to " + app_user.user.email);
 						$.mobile.changePage( "#home_page", { transition: "slideup"} )
 						
 					}
