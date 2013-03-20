@@ -5,7 +5,7 @@
 		<h1>Breeasy Master Affiliate Earnings Calculator</h1>
 	    <div class="yui-u first">
 
-		<%= form_tag calculate_commissions_path :method => :post do %>
+		<%= form_tag calculate_commissions_path, :id => "master_calculator_form", :method => :post do %>
 		<h2>Step 1.  Direct Customers</h2>
 		<table>
 			<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Commission Rate</th><th>Number of Subscriptions Sold</th></tr></thead>

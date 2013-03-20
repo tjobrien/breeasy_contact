@@ -64,6 +64,10 @@ jQuery(document).ready(function() {
 		        return false;
 		    }
 		}	
-	
+		$("#master_calculator_form").submit(function(event){
+			console.log("master_calculator_form");
+			//TODO make the entire form a javascript only function - 
+			return false;
+		});
 });
 
