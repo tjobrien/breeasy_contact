@@ -66,8 +66,12 @@ jQuery(document).ready(function() {
 		}	
 		$("#master_calculator_form").submit(function(event){
 			console.log("master_calculator_form");
-			//TODO make the entire form a javascript only function - 
-			return false;
+			//TODO make the entire form a javascript only function
+			
+			// 
+			// 
+			// var total = parseFloat(total_wo_shipping) + parseFloat(shipping_amount);
+			// return false;
 		});
 });
 
