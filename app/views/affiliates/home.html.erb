@@ -1,11 +1,35 @@
 <div class="breadcrumbs"><a href="http://www.breeasy.com">Breeasy.com</a> > <a href="http://www.breeasy.com/opportunities">Opportunities</a> > <a href="http://affiliate.breeasy.com">Breeasy Affiliate Programs</a></div>
 
 <div id="bd">
-	<h1>Easy Affiliate Earnings with Breeasy</h1>
-	<p>Breeasy offers two ways to earn by referring and selling Breeasy Apps.</p>
-	<% unless current_user.nil? %>
-		<%= link_to "Go to my Dashboard", user_affiliates_path(current_user.id) %>
-	<% end %>
+	<div class="yui-ge"> 
+	    <div class="yui-u first"> 
+			<h1>Earn Big Money with our Super Easy Affiliate Programs</h1>
+		</div> 
+	    <div class="yui-u"> 
+			<% unless current_user.nil? %>
+				<p><%= link_to "Go to my Affiliate Dashboard", user_affiliates_path(current_user.id) %></p>				
+			<% else %>
+				<p>Already have a Breeasy Affiliate Member?  <%= link_to "Login", login_path %></p>
+			<% end %>		    
+		</div> 
+	</div>
+	<div class="yui-g">
+		
+		<h2 class='section_header'>Make Breeasy <em>Your</em> Small Business with our Master Affiliate Program</h2><p>Looking for an interesting, simple, easy, and profitable small business of your own?  Need to maximize your income?  Looking for a part-time opportunity with unlimited upside potential? Know lots of people who are great at selling or know lots of freelancers, consultants, or small business owners? Becoming a <a href="http://affiliate.breeasy.com/master-affiliate-signup">Breeasy Master Affiliate</a> is just for you.  You can earn commissions of up to 50% on new paid subscriptions and up to 40% on paid renewals.  Plus, you can recruit you own sub-affiliates and sales representatives and earn from every subscription <em>they sell</em>.  Some conditions apply.</p>
+	</div>
+	<div class="yui-gb">
+		<div class="yui-u first">
+			<p><a href="http://affiliate.breeasy.com/master-affiliate-earnings-calculator">How Much Can I Earn as a Master Affiliate?</a></p>
+		</div>
+		<div class="yui-u">
+			<p><a href="http://affiliate.breeasy.com/master-affiliate-signup">Tell me more about being a Master Affiliate</a></p>	
+		</div>
+	</div>
+	<div class="yui-g">
+		<h2 class='section_header'>Earn with Breeasy!  Free Standard Affiliate Program</h2><p> Want to make some extra money referring Breeasy to your customers or advertise Breeasy on your website or newsletter? <a href="http://affiliate.breeasy.com/affiliate-home">Free Affiliate Program now available!</a>  You can earn commissions of up to 35% on new paid subscribers and up to 25% on all paid renewals.  Some conditions apply.  See <a href="http://affiliate.breeasy.com/affiliate-home">Breeasy Affiliate Program </a> for details and start earning today.</p>
+		<p><a href="http://affiliate.breeasy.com/standard-affiliate-earnings-calculator">How much can I earn as a Standard Affiliate?</a></p>
+	</div>
+	
 	<div class="yui-g">
 	    <div class="yui-u first">
 		<h1>Standard Affiliate Program</h1>
@@ -15,10 +39,10 @@
 			<li>Earn up to 25% on renewals</li>
 			<li>On Demand Tracking</li>
 			<li><%= link_to "Earnings Calculator", standard_affiliate_earnings_path %></li>
-			<li>Signup and Earn Today</li>
+			<li>Signup and Earn Today!</li>
 		</ul>
-	<p><%= link_to "Standard Affiliate Program", new_standard_path %></p>
-		 </div>
+		<p><%= link_to "Standard Affiliate Program Details", new_standard_path %></p>
+		</div>
 	    <div class="yui-u">
 	    <h1>Master Affiliate Program</h1>
 		<ul class="features">
@@ -30,12 +54,11 @@
 			<li><%= link_to "Earnings Calculator", master_affiliate_earnings_path %></li>
 			<li>Exclusive offers</li>
 			<li>Dedicated Account Executive to help you succeed</li>
-			<li>Signup Now and begin recruiting and earning</li>
+			<li>Signup Now!</li>
 		</ul>
-		<p><%= link_to "Master Affiliate Program", new_master_path %></p>
+		<p><%= link_to "Master Affiliate Program Details", new_master_path %></p>		
 		
 		</div>
 	</div>
-	<p>Already have a Breeasy Affiliate Account?  <%= link_to "Login", login_path %></p>
 	<p>Breeasy Affiliates!  <%= link_to "Check out our new mobile site", "http://affiliate.breeasy.com/mobile/index.html" %> (beta)</p>
 </div>
