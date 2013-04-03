@@ -1,5 +1,5 @@
 class AffiliatesController < ApplicationController
-  
+  layout 'members', :only => [:index, :edit, :tips, :help]
   before_filter :logged_in, :except => [:home, :new_standard, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate, :standard_calculate_commissions, :standard_affiliate_calculator]
   
   
@@ -95,5 +95,11 @@ class AffiliatesController < ApplicationController
   end
   
   def home
+  end
+  
+  def tips
+  end
+  
+  def help
   end
 end

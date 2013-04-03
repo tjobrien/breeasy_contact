@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Earn Big Money Free Affiliate Program | Breeasy.com</title>
+	<%= stylesheet_link_tag "http://yui.yahooapis.com/combo?2.9.0/build/reset-fonts-grids/reset-fonts-grids.css&2.9.0/build/base/base-min.css" %>
+	<%= stylesheet_link_tag 'application' %>
+	<%= javascript_include_tag "application" %>
+    
+
+  <%= csrf_meta_tags %>
+</head>
+ <div id="doc2"class="yui-t7">
+<div id="app_header">
+    	<a href="http://www.breeasy.com"><img src="http://www.breeasy.com/images/communicate_manage_grow.png" alt="small business productivity platform" width="400" height="53" /></a>
+    	</div>
+	    <div id='hd'>
+		    <div id='navigation'>
+				<ol id="navlinks">
+					<li><%= link_to "Dashboard", user_affiliates_path(current_user.id) %></li>
+					<li><%= link_to "Tips", affiliate_tips_path %></li>
+					<li><%= link_to "Help", affiliate_help_path %></li>
+					
+					
+
+					
+					
+			</ol>
+				
+			</div>
+		</div> <!-- hd -->
+
+
+<body>
+	<% flash.each do |name, msg| %>
+	    <%= content_tag :div, msg, :id => "flash#{name}" %>
+	  <% end %>
+	
+	<%= yield %>
+</div>
+<div id='ft' class="center">
+	<p id='goodbye'>copyright &copy; 2012 - 2013 Breeasy.com</p>
+</div>
+</body>
+</html>

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :urls, :dependent => :destroy
   has_many :sub_affiliates, :class_name => "User", :foreign_key => "master_id"
   belongs_to :master_affiliate, :class_name => "User", :foreign_key => "master_id"
+  belongs_to :account_executive
   
   def self.authenticate(email, password)
     user = find_by_email(email)

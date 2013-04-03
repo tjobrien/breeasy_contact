@@ -104,6 +104,21 @@
 					<% end %>
 				</tbody>
 			</table>
+			<h2>Your Account Executive</h2>
+			<table>
+				<thead><tr><th>Name</th><th>Email</th><th>Skype</th><th>Phone</th></tr></thead>
+				<tbody>
+					<tr>
+							<td><%= current_user.account_executive.name %></td>
+							<td><%= current_user.account_executive.email %></td>
+							<td><%= current_user.account_executive.skype %></td>
+							<td><%= current_user.account_executive.phone %></td>
+
+						
+					</tr>
+
+				</tbody>
+			</table>
 		<h3>Your Breeasy for Small Business Deluxe Account</h3>
 			<% if current_user.get_breeasy_account %>
 			<p>Breeasy for Small Business Account is active.</p>
@@ -112,15 +127,7 @@
 			
 			<% end %>
 
-		<% end %>
-		<h2>Tips</h2>
-		<div class="yui-g">
-		    <div class="yui-u first">
 		
-			</div>
-			<div class="yui-u">
-				
-			</div>
-		</div>
+		<% end %>
 		
 </div>

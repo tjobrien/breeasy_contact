@@ -24,10 +24,14 @@
 <% if master %>
 
 	    <%= f.hidden_field :master, :value => master %>
+		<%= f.hidden_field :account_executive_id, :value => 1 %>
+	    
+		
 <% end %>
 <% if master_id %>
 
 	    <%= f.hidden_field :master_id, :value => master_id %>
+		
 <% end %>
 
 
