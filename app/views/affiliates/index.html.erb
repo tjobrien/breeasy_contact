@@ -38,9 +38,17 @@
 					<% end %>
 				</tbody>
 			</table>
+			<% if current_user.master %>
+			<h2>Sub-Affiliate and Sales Rep Sign-up Page</h2>
+			<%= link_to "Add Sub-Affiliates and Sales Reps", sub_affiliate_path(current_user.id)  %>
+			<h2>Sub-Affiliate and Sales Rep Sign-up URL</h2>
+			<p><%= "http://affiliate.breeasy.com/sub-affiliate/#{current_user.id}" %></p>
+			<% end %>
+			<h2>Sub-Affiliate and Sale Rep Sign-up Link</h2>
+			<p><%= "<a href='http://affiliate.breeasy.com/sub-affiliate/#{current_user.id}>Earn with my Referral Program!</a>" %></p>
 			 </div>
 		    <div class="yui-u">
-			<h2>Recent Signups</h2>
+			<h2>Recent Customer Signups</h2>
 			<table>
 				<thead><tr><th>user email</th><th>App</th><th>Plan</th><th>Date</th></tr></thead>
 				<% current_user.get_bfsb_referrals.each do |r| %>
@@ -60,16 +68,12 @@
 			<table>
 				<thead><th>This Week</th><th>This Month</th><th>This Year</th><th</thead>
 			</table>
-			<% if current_user.master %>
-			<h2>Sub-Affiliate Sign-up Page</h2>
-			<%= link_to "Add Subs", sub_affiliate_path(current_user.id)  %>
-			<h2>Sub Affiliate Sign-up Link</h2>
-			<p><%= "http://affiliate.breeasy.com/sub-affiliate/#{current_user.id}" %></p>
-			<% end %>
+			<h2>Mobile Affiliate Management</h2>
+			<p><%= link_to "Signup customers wherever you are", "http://affiliate.breeasy.com/mobile/index.html" %></p>
 			</div>
 			
 		</div>
-		<h2>Your Referral Code Links </h2>
+		<h2>Your Referral/Affiliate Code Links </h2>
 		<% current_user.urls.each do |url| %>
 		<table>
 			<h3><%= url.program_description %></h3>
@@ -102,7 +106,7 @@
 			</table>
 		<h3>Your Breeasy for Small Business Deluxe Account</h3>
 			<% if current_user.get_breeasy_account %>
-			<p>Active</p>
+			<p>Breeasy for Small Business Account is active.</p>
 			<% else %>
 			<p><%= link_to "Get Your Account Now", "http://app.breeasy.com/master-affiliate?affiliate_code=#{current_user.affiliate_detail.affiliate_code}" %></p>
 			

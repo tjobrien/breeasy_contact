@@ -99,16 +99,23 @@
 		
 		$("#breeasy_signup_form").unbind();
 		$("#breeasy_signup_form").submit(function(event){
-				//var error = false;
+		
 				setup_app_user(1);
+			
 				return false;
 
 		});
 		
 		$("#sub_signup_form").unbind();
 		$("#sub_signup_form").submit(function(event){
-				//var error = false;
+			console.log(user.master);
+			if(user['master']){	
 				setup_sub_affiliate();
+			}
+			else
+			{
+				alert("You must be a Master Affiliate to create sub-affiliates or sales reps.")
+			}
 				return false;
 
 		});
@@ -253,7 +260,7 @@
 		  <h1>Sub/Rep</h1>
 	  </div><!-- /header -->
 	  <div data-role="content">
-		<p>Enter your sub affiliate or rep's details to immediately create their free affiliate account.</p>
+		<p>Enter your sub affiliate or sales rep's details to immediately create their free Breeasy affiliate account.  You must be a Master Affiliate to create sub-affiliates.</p>
 			<h2 id="sub_response"></h2>
 			<form id="sub_signup_form">
 			<div data-role="fieldcontain">
