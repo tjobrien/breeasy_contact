@@ -3,10 +3,10 @@
 <div id="bd">
 	<div class="yui-g">
 		<h1>Breeasy Master Affiliate Earnings Calculator</h1>
-	    <div class="yui-u first">
 
 		<%= form_tag calculate_commissions_path, :id => "master_calculator_form", :method => :post do %>
 		<h2>Step 1.  Direct Customers</h2>
+		<p>Enter the number of subscriptions, by plan type, that you expect to signup  or sell directly as a Master Affiliate in your first year. The numbers shown are for demonstration purposes only.</p>
 		<table>
 			<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Commission Rate</th><th>Number of Subscriptions Sold</th></tr></thead>
 			<tbody>
@@ -15,36 +15,32 @@
 				<% end %>
 			</tbody>
 		</table>
-		<h2>Step 2. Sub-Affiliates</h2>
-		<table><tbody>
-		<tr><td>Number of Sub-Affiliates</td><td><%= text_field_tag :number_of_subs, 50 %></td></tr>
-		</tbody>
-		</table>	
-		<table>
-			<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Commission Rate</th><th>Average Plans Sold per Sub-Affiliate</th></tr></thead>
-			<tbody>
-				<% Product.active.master.each do |p| %>
-					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_percentage(p.sub_commission * 100, :precision => 0) %></td><td><%= text_field_tag "sub_#{p.id}", 20 %></td></tr>
-				<% end %>
+			<h2>Step 2. Sub-Affiliates</h2>
+			<table><tbody>
+			<tr><td>Number of Sub-Affiliates</td><td><%= text_field_tag :number_of_subs, 50 %></td></tr>
 			</tbody>
-		</table>	
-		<%= submit_tag "Go!", :name => nil%>	
-		<% end %>
-		 </div>
-	    <div class="yui-u">
-				<h2>Step 3. Review Potential Earnings</h2>
-				<table>
-					<thead><tr><th># of Direct</th><th># of Subs</th><th>Direct</th><th>Sub-Affiliates</th><th>Totals</th></tr></thead>
-					<tbody>
+			</table>	
+			<table>
+				<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Commission Rate</th><th>Average Plans Sold per Sub-Affiliate</th></tr></thead>
+				<tbody>
+					<% Product.active.master.each do |p| %>
+						<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_percentage(p.sub_commission * 100, :precision => 0) %></td><td><%= text_field_tag "sub_#{p.id}", 20 %></td></tr>
+					<% end %>
+				</tbody>
+			</table>
+			<h2>Step 3. Review Potential Earnings</h2>
+			<table>
+				<thead><tr><th># of Direct</th><th># of Subs</th><th>Direct</th><th>Sub-Affiliates</th><th>Totals</th></tr></thead>
+				<tbody>
 
-							<tr><td><%= @total_count %></td><td><%= @sub_count %></td><td><%= number_to_currency(@total_direct) %></td><td><%= number_to_currency(@total_sub) %></td><td><%= number_to_currency(@total) %></td></tr>
+						<tr><td><%= @total_count %></td><td><%= @sub_count %></td><td><%= number_to_currency(@total_direct) %></td><td><%= number_to_currency(@total_sub) %></td><td><%= number_to_currency(@total) %></td></tr>
 
-					</tbody>
-				</table>
-				<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
-				<p>Remember - These earnings are in the first year - You will continue to earn commissions on all renewals - up to  40% on paid renewals - and they're automatic!</p>
-		</div>
+				</tbody>
+			</table>
+			<%= submit_tag "Calculate Earnings", :name => nil%>	
+			<% end %>
+			<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
+			<p>Remember - These earnings are in the first year - You will continue to earn commissions on all renewals - up to  40% on paid renewals - and they're automatic!</p>
 		
-
 	</div>
 </div>

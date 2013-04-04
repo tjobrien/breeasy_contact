@@ -3,7 +3,6 @@
 <div id="bd">
 	<div class="yui-g">
 		<h1>Breeasy Standard Affiliate Earnings Calculator</h1>
-	    <div class="yui-u first">
 
 		<%= form_tag standard_calculate_commissions_path :method => :post do %>
 		<h2>Step 1. Enter number of Subscriptions by type:</h2>
@@ -16,23 +15,19 @@
 			</tbody>
 		</table>
 	
-		<%= submit_tag "Go!", :name => nil%>	
+
+		<h2>Step 2. Review Potential Earnings</h2>
+		<table>
+			<thead><tr><th># of Subs</th><th>Annual Total</th></tr></thead>
+			<tbody>
+
+					<tr><td><%= @total_count %></td><td><%= number_to_currency(@total_direct) %></td></tr>
+
+			</tbody>
+		</table>
+		<%= submit_tag "Calculate Earnings", :name => nil%>	
 		<% end %>
-		 </div>
-	    <div class="yui-u">
-				<h2>Step 2. Review Potential Earnings</h2>
-				<table>
-					<thead><tr><th># of Subs</th><th>Annual Total</th></tr></thead>
-					<tbody>
-
-							<tr><td><%= @total_count %></td><td><%= number_to_currency(@total_direct) %></td></tr>
-
-					</tbody>
-				</table>
-				<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
-				<p>Remember - These earnings are in the first year - You will continue to earn commissions on all renewals - up to  25% on paid renewals - and they're automatic!</p>
-		</div>
-		
-
+		<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
+		<p>Remember - These earnings are in the first year - You will continue to earn commissions on all renewals - up to  25% on paid renewals - and they're automatic!</p>
 	</div>
 </div>
