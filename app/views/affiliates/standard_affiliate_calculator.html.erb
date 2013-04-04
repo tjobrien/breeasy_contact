@@ -5,12 +5,14 @@
 		<h1>Breeasy Standard Affiliate Earnings Calculator</h1>
 
 		<%= form_tag standard_calculate_commissions_path :method => :post do %>
-		<h2>Step 1. Enter number of Subscriptions by type:</h2>
+			<h2>Step 1.  Number of Subscriptions</h2>
+			<p>Enter the number of subscriptions, by paid plan type, that you expect to signup or sell directly to your customers as a Breeasy Affiliate in your first year. The numbers shown are for demonstration purposes only. Please enter an appropriate number of subscriptions based on your business experience and customer base.</p>
+		
 		<table>
-			<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Commission Rate</th><th>Number of Subscriptions sold per year</th></tr></thead>
+			<thead><tr><th>Id</th><th>Plan</th><th>Interval</th><th>Price</th><th>Commission Rate</th><th>Number of Subscriptions sold per year</th></tr></thead>
 			<tbody>
 				<% Product.active.standard.each do |p| %>
-					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= text_field_tag "direct_#{p.id}", 75 %></td></tr>
+					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_currency(p.price) %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= text_field_tag "direct_#{p.id}", 75 %></td></tr>
 				<% end %>
 			</tbody>
 		</table>
@@ -25,9 +27,11 @@
 
 			</tbody>
 		</table>
-		<%= submit_tag "Calculate Earnings", :name => nil%>	
+		<p><%= submit_tag "Calculate Earnings", :name => nil%></p>
 		<% end %>
-		<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
+		<p>Assumptions - Calculates estimated earnings per year.  Monthly subscriptions are assumed to last a full year regardless of start date.  All calculations are based on current plan prices, without any discounts or promotions.</p>		
 		<p>Remember - These earnings are in the first year - You will continue to earn commissions on all renewals - up to  25% on paid renewals - and they're automatic!</p>
+		<p><%= link_to "Start my Free Affiliate Membership", new_standard_path %></p>
+		
 	</div>
 </div>
