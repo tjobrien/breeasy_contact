@@ -10,7 +10,7 @@
 			<thead><tr><th>Id</th><th>Paid Plan</th><th>Interval</th><th>Price</th><th>Commission Rate</th><th>Number of Subscriptions Sold</th></tr></thead>
 			<tbody>
 				<% Product.active.master.each do |p| %>
-					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= text_field_tag "direct_#{p.id}", 20 %></td></tr>
+					<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_currency(p.price) %></td><td><%= number_to_percentage(p.new * 100, :precision => 0) %></td><td><%= text_field_tag "direct_#{p.id}", 20 %></td></tr>
 				<% end %>
 			</tbody>
 		</table>
@@ -22,12 +22,13 @@
 				</tbody>
 			</table>
 			<h2>Step 3.  Average Number of Subscriptions per Sub-Affiliate</h2>
+			<p>Enter the average number of subscriptions per sub-affiliate/sales rep for each paid plan.  The average number shown are just examples, please put in your own numbers.</p>
 				
 			<table>
 				<thead><tr><th>Id</th><th>Paid Plan</th><th>Interval</th><th>Price</th><th>Commission Rate</th><th>Average Plans Sold per Sub-Affiliate</th></tr></thead>
 				<tbody>
 					<% Product.active.master.each do |p| %>
-						<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td></td><td><%= number_to_percentage(p.sub_commission * 100, :precision => 0) %></td><td><%= text_field_tag "sub_#{p.id}", 20 %></td></tr>
+						<tr><td><%= p.id %></td><td><%= p.name %></td><td><%= product_interval(p.interval) %></td><td><%= number_to_currency(p.price) %></td><td><%= number_to_percentage(p.sub_commission * 100, :precision => 0) %></td><td><%= text_field_tag "sub_#{p.id}", 20 %></td></tr>
 					<% end %>
 				</tbody>
 			</table>
