@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :sub_affiliates, :class_name => "User", :foreign_key => "master_id"
   belongs_to :master_affiliate, :class_name => "User", :foreign_key => "master_id"
   belongs_to :account_executive
+  has_one :content
   
   def self.authenticate(email, password)
     user = find_by_email(email)
@@ -52,5 +53,14 @@ class User < ActiveRecord::Base
     end
   end
   return retval
+  end
+  
+  def breeasy_username
+    ref_code = self.affiliate_detail.affiliate_code
+    response = HTTParty.get("http://app.breeasy.com/api/v1/user/master_affiliate.json?affiliate_code=#{ref_code}")
+    unless response['user'].nil?
+      retval = response['user']['username']
+    end
+    return retval
   end
 end

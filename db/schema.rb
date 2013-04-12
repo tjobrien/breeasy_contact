@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404015056) do
+ActiveRecord::Schema.define(:version => 20130410223617) do
 
   create_table "account_executives", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,18 @@ ActiveRecord::Schema.define(:version => 20130404015056) do
     t.string   "contact_method"
     t.boolean  "referral"
     t.boolean  "bbc"
+  end
+
+  create_table "contents", :force => true do |t|
+    t.string   "header_1"
+    t.text     "paragraph_1"
+    t.string   "sub_head_2"
+    t.text     "paragraph_2"
+    t.string   "sub_head_3"
+    t.text     "paragraph_3"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "products", :force => true do |t|

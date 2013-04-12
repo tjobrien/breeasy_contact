@@ -1,6 +1,8 @@
 class AffiliatesController < ApplicationController
   layout 'members', :only => [:index, :edit, :tips, :help]
-  before_filter :logged_in, :except => [:home, :new_standard, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate, :standard_calculate_commissions, :standard_affiliate_calculator]
+  #layout 'breeasy_affiliate_program', :only => [:breeasy_affiliate_program]
+  before_filter :logged_in, :except => [:home, :new_standard, :new_master, :affiliate_calculator, :calculate_commissions, :sub_affiliate,
+    :standard_calculate_commissions, :standard_affiliate_calculator, :breeasy_affiliate_program]
   
   
    def get_owner
@@ -101,5 +103,10 @@ class AffiliatesController < ApplicationController
   end
   
   def help
+  end
+  
+  def breeasy_affiliate_program
+    @affiliate = User.find params[:affiliate_id]
+    
   end
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         if user.affiliate_detail.nil?
           redirect_to new_affiliate_details_path
         else
-          redirect_to user_affiliates_path(current_user.id), :notice => "Logged in!"
+          redirect_to user_affiliates_path(current_user.id)
         end
       else
         flash.now.alert = "Invalid email or password"
