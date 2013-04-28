@@ -17,7 +17,7 @@ BreeasyContact::Application.routes.draw do
         resources :users, :apps
       end
     end
- resources :breeasy_affiliates, :only => [:show] 
+ resources :breeasy_affiliates, :only => [:show, :new] 
   
   match 'thank_you/:id' => 'contacts#thank_you', :as => 'thank_you'
   match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details

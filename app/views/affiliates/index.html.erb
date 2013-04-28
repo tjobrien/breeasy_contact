@@ -91,7 +91,7 @@
 		</table>
 			<h2>Sub-Affiliates and Sales Reps</h2>
 			<table>
-				<thead><tr><th>Id</th><th>Email</th><th>First Name</th><th>Last Name</th><th>Company</th><th>Referral Code</th></tr></thead>
+				<thead><tr><th>Id</th><th>Email</th><th>First Name</th><th>Last Name</th><th>Company</th><th>Referral Code</th><th>Accepted Terms</th></tr></thead>
 				<tbody>
 					<% current_user.sub_affiliates.each do |sub| %>
 					<tr>
@@ -101,6 +101,7 @@
 							<td><%= sub.affiliate_detail.last_name %></td>
 							<td><%= sub.affiliate_detail.company %></td>
 							<td><%= sub.affiliate_detail.affiliate_code %></td>
+							<td><%= sub.affiliate_detail.accepted_terms %></td>
 							<td>View Details</td>
 						<% end %>
 						

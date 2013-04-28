@@ -2,14 +2,14 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<title>Breeasy Affiliate Program | Mobile site</title> 
-	<!-- <link rel="stylesheet" href="themes/auto-reg.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" /> -->
-	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" type="text/css">
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<title></title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	<script src="js/main.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
@@ -120,7 +120,7 @@
 
 		});
 		
-		$("#logout").live('pageshow', function(event){
+		$("#logout").on('pageshow', function(event){
 			localStorage.clear();
 			$("#logout_response").text("Logged Out")
 			var user = null;
@@ -148,18 +148,30 @@
 </head> 
 
 <body>
-	<div data-role="page" id="home_page"> 
+	<div data-role="page" id="home_page" data-title="Breeasy Mobile Affiliate Program"> 
 
-		<div data-role="header" data-theme="b">
-		  	<h1>Breeasy Affiliate Program</h1>			
+		<div data-role="header" data-theme="b" >
+		  	<h1>Breeasy Mobile Affiliate</h1>			
 		</div><!-- /header -->
 		<div data-role="content">
-		<h3 id="status"></h3>
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><h3 id="status"></h3></div>
+				<div class="ui-block-b"><h3>Earn with Breeasy!</h3><p>You can create new Breeasy App Subscriptions right from your mobile phone or tablet.  Master Affiliates can create sub-affiliates
+					and sales representatives, too.  If you are not a Breeasy Affiliate, you can create your Free or Master Affiliate <a href="http://affiliate.breeasy.com">here</a>. </p></div>
+			</div><!-- /grid-a -->
+			<h4>Add Customers</h4>
 			<div data-role="controlgroup">
-				<a href="#instainvoice_signup" data-role="button">InstaInvoice Signup</a>
-				<a href="#breeasy_signup" data-role="button">Breeasy For Small Business</a>
-				<a href="#sub_signup" data-role="button">Sub Affiliate/Rep Signup</a>
-				<a href="#login" data-role="button">Login</a>
+				<a href="#breeasy_signup" data-role="button" data-icon="arrow-r" data-iconpos="right">Breeasy For Small Business</a>
+				<a href="#instainvoice_signup" data-role="button" data-icon="arrow-r" data-iconpos="right">InstaInvoice Signup</a>
+				
+			</div>
+			<h4>Sub-Affiliates</h4>
+			<div data-role="controlgroup">
+				<a href="#sub_signup" data-role="button" data-icon="arrow-r" data-iconpos="right">Sub Affiliate/Rep Signup</a>
+			</div>
+			<h4>Actions</h4>
+			<div data-role="controlgroup">
+				<a href="#login" data-role="button" data-icon="arrow-r" data-iconpos="right">Login</a>
 				<a href="#logout" data-role="button">Logout</a>
 				<a href="#about" data-role="button">About</a>
 			</div>
@@ -281,10 +293,10 @@
 		</div><!-- /footer --> 	
 
 	</div> <!--/page-->
-	<div data-role="page" id="breeasy_signup">
+	<div data-role="page" id="breeasy_signup" data-title="Breeasy for Small Business">
 	  <div data-role="header" data-theme="b">
 		   <a href="index.html" data-icon="home">Home</a>
-		  <h1>Breeasy App</h1>
+		  <h1>Breeasy</h1>
 	  </div><!-- /header -->
 	  <div data-role="content">
 		<p>Enter your customer's email address, create a password and choose a Breeasy for Small Business Plan.  An email will be sent to the user with additional instructions.</p>
@@ -351,7 +363,7 @@
 		  <h1>About</h1>
 	  </div><!-- /header -->
 	  <div data-role="content">
-			<p>Specifically for Breeasy Affiliate Program members, the mobile affiliate site allows affiliates to add customers to Breeasy for Small Business, InstaInvoice and the Breeasy Billing and Time Tracker Web App.</p>
+			<p>Specifically for Breeasy Affiliate Program members, this mobile affiliate site allows affiliates to add customers to Breeasy for Small Business, InstaInvoice Android App, and the Breeasy Billing and Time Tracker Web App.</p>
 			<p>For more information regarding the Breeasy Affiliate Programs <a href="http://affiliate.breeasy.com">Tell Me More</a>.
 	  </div> <!-- /content -->
 	 	<div data-role="footer" data-theme="b">

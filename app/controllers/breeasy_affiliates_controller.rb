@@ -5,6 +5,7 @@ class BreeasyAffiliatesController < ApplicationController
   end
   
   def new
+    @affiliate = params[:affiliate_id]
     
   end
 end

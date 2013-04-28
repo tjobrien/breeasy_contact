@@ -1,10 +1,12 @@
+
+<%= form_for [@affiliate, @content], :url => {:controller => 'breeasy_affiliates', :action => 'create'} do |f| %>
+
 <div id="bd">
-	<h1>Breeasy Apps brought to you by <%= @affiliate.affiliate_detail.company %></h1>
 	<div class="yui-g">
+		<p><em>Enter some header copy</em>
 		<h1><%= @affiliate.content.header_1 %></h1>
-		<p><%= @affiliate.content.paragraph_1 %></p>
-		<h2>What is Breeasy?</h2>
-		<p>Breeasy.com is a collection of small business productivity apps that help freelancers, consultants, and small businesses manage customers, tasks, finances, and much, much more.</p>
+		<p>Introductory Copy Goes here - who you are, why are you selling breeasy products etc.</p>
+		<p>Blurb about breeasy - </p>
 	    <div class="yui-u first">
 		<p>Products</p>
 		</div>
