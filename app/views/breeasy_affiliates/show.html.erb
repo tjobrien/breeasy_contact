@@ -1,27 +1,2 @@
-<div id="bd">
-	<h1>Breeasy Apps brought to you by <%= @affiliate.affiliate_detail.company %></h1>
-	<div class="yui-g">
-		<h1><%= @affiliate.content.header_1 %></h1>
-		<p><%= @affiliate.content.paragraph_1 %></p>
-		<h2>What is Breeasy?</h2>
-		<p>Breeasy.com is a collection of small business productivity apps that help freelancers, consultants, and small businesses manage customers, tasks, finances, and much, much more.</p>
-	    <div class="yui-u first">
-		<p>Products</p>
-		</div>
-		<div class="yui-u">
-			Signup form for products - trial, etc.
-		</div>
-	</div>
-	
-	<div class="yui-g">
-		<h1>Sub Affiliate Sales Rep Section</h1>
-		<p>Introductory Copy Goes here - who you are, why are you selling breeasy products etc.</p>
-		<p>Blurb about breeasy - </p>
-	    <div class="yui-u first">
-		<p>Affiliate Table</p>
-		</div>
-		<div class="yui-u">
-			sub affiliate signup
-		</div>
-	</div>
-</div>
+
+<%= render :partial => 'content' %>

@@ -3,8 +3,10 @@
 <div id="bd">
 	<div class="yui-g">
 	    <div class="yui-u first">
-		<h1>Free Sign Up Now!</h1>
-		<h3>Partner Affiliate Name:  <%= @master_affiliate.affiliate_detail.company %></h3>
+		<h1>Sub-Affiliate and Sales Rep Signup</h1>
+		<h3>Partner/Master Affiliate Name:  <%= @master_affiliate.affiliate_detail.company %></h3>
+		<p>Creating your sub-affiliate or Sales Representative account with your Breeasy Master Affiliate <%= @master_affiliate.affiliate_detail.company %> is free and easy.  Just complete the form below, 
+			accept the terms on the next page and you will be earning commissions in no time.  More Details are over on the right.</p>
 		<%= render :partial => 'affiliates/signup_form', :locals => {:master => false, :master_id => @master_affiliate.id} %>
 			<%= link_to "Already have a Login?", login_path %>
 			<%= render :partial => 'affiliates/quote' %>

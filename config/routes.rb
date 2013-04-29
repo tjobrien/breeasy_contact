@@ -35,7 +35,7 @@ BreeasyContact::Application.routes.draw do
   match 'api/v1/user/login' => 'api/v1/users#login'
   match 'users/create_contact' => 'users#create_contact'
   match 'breeasy-affiliate-program/:affiliate_id' => "affiliates#breeasy_affiliate_program", :as => :breeasy_affiliate_program
-  
+  match 'breeasy-affiliate-sample-page' => "breeasy_affiliates#sample", :as => :breeasy_affiliate_page_sample
   root :to => 'affiliates#home'
   
   
