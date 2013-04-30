@@ -105,6 +105,9 @@ class AffiliatesController < ApplicationController
   def help
   end
   
+  def page
+  end
+  
   def breeasy_affiliate_program
     @affiliate = User.find params[:affiliate_id]
     

@@ -1,0 +1,21 @@
+<div class="breadcrumbs"><a href="http://affiliate.breeasy.com">Breeasy Affiliate Programs</a> > <%= link_to "Dashboard", user_affiliates_path(current_user.id) %> > Affiliate Page</div>
+<h1>Affiliate Page</h1>
+<div id="bd">
+	<div class="yui-g">
+		Each Breeasy Affiliate Membership comes with a public page you can activate so that potential customers can find out more information about Breeasy apps and
+		have links to signup pages with your referral link.  This is an easy way to signup new subscribers, and add some information about you or your company.
+		<h2>Affiliate Page Details</h2>
+		<% if current_user.content.nil? %>
+			<%= link_to "Create Affiliate Page", new_breeasy_affiliate_path(:affiliate_id => current_user.id) %> | <%= link_to "Sample", breeasy_affiliate_page_sample_path %> | 
+		<% else %>
+			<%= link_to "Edit Affiliate Page", edit_breeasy_affiliate_path(current_user.content.id) %> | <%= link_to "Sample", breeasy_affiliate_page_sample_path %> | 
+			<% if current_user.content.active? %>
+				<%= link_to "View", breeasy_affiliate_path(current_user.id)%>
+			<% else %>
+				<%= link_to "Preview", breeasy_affiliate_preview_path %>
+			
+			<% end %>
+		
+		<% end %>
+	</div>
+</div>

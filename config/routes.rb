@@ -17,7 +17,7 @@ BreeasyContact::Application.routes.draw do
         resources :users, :apps
       end
     end
- resources :breeasy_affiliates, :only => [:show, :new] 
+ resources :breeasy_affiliates, :only => [:show, :new, :create, :edit, :update] 
   
   match 'thank_you/:id' => 'contacts#thank_you', :as => 'thank_you'
   match 'new_affiliate_details' => 'users#new_affiliate_details', :as => :new_affiliate_details
@@ -25,6 +25,7 @@ BreeasyContact::Application.routes.draw do
   match 'affiliate-home' => 'affiliates#home', :as => :affiliate_home
   match 'affiliate-tips' => 'affiliates#tips', :as => :affiliate_tips
   match 'affiliate-help' => 'affiliates#help', :as => :affiliate_help
+  match 'affiliate-page' => 'affiliates#page', :as => :affiliate_page
   match 'master-affiliate-signup' =>'affiliates#new_master', :as => :new_master
   match 'standard-affiliate-signup' => 'affiliates#new_standard', :as => :new_standard
   match 'master-affiliate-earnings-calculator' => 'affiliates#affiliate_calculator', :as => :master_affiliate_earnings
@@ -36,6 +37,7 @@ BreeasyContact::Application.routes.draw do
   match 'users/create_contact' => 'users#create_contact'
   match 'breeasy-affiliate-program/:affiliate_id' => "affiliates#breeasy_affiliate_program", :as => :breeasy_affiliate_program
   match 'breeasy-affiliate-sample-page' => "breeasy_affiliates#sample", :as => :breeasy_affiliate_page_sample
+  match 'breeasy-affiliate-preview-page' => "breeasy_affiliates#preview", :as => :breeasy_affiliate_preview
   root :to => 'affiliates#home'
   
   

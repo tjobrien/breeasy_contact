@@ -1,29 +1,66 @@
-
-<%= form_for [@affiliate, @content], :url => {:controller => 'breeasy_affiliates', :action => 'create'} do |f| %>
-
 <div id="bd">
+	<%= form_for [@affiliate, @content], :url => {:controller => 'breeasy_affiliates', :action => 'create'} do |f| %>
+	<h1>Breeasy Apps brought to you by <%= @affiliate.affiliate_detail.company %></h1>
+		<p><em>Enter some header copy</em></p>
+		<p><%= f.text_field :header_1, :size => 50 %> for example, Welcome to my Breeasy Referral Program!</p>
+		<p><em>Introductory Copy Goes here - who you are, why are you selling breeasy products etc.</em></p>
+		<%= f.text_area :paragraph_1, :cols => 80, :rows => 3 %>
+		<p><em>The following copy is provided for you</em></p>
+		<h2>What is Breeasy?</h2>
+		<p>Breeasy.com is a collection of small business productivity apps that help freelancers, consultants, and small businesses manage customers, tasks, finances, and much, much more.</p>
+		<h2> Breeasy Apps</h2>
+		<h3>Breeasy for Small Business</h3>
+		<p>Breeasy for Small Business is our flagship app that keeps you organized, efficient, and productive. Simple and easy to use, you will notice improvements in your day-to-day work flow in no time.</p>
+		<div class="yui-g">
+			<div class="yui-u first">
+				<ul class="features">
+					<li>Manage Customers and Suppliers</li>
+	    			<li>CRM - Customer Relationship Management</li>
+	    			<li>CSI - Customer Service Incidents</li>
+	    			<li>Create To Do Lists</li>
+	    			<li>Create and Assign Tasks</li>
+				</ul>
+			</div>
+			<div class="yui-u">
+					<ul class="features">
+		    			<li>Create and View Events with Calendars</li>
+		    			<li>Manage Employees, Consultants, and Freelancers</li>
+		    			<li>Simple and Easy Project Management - now with Milestones</li>
+		    			<li>Reminders - To Dos, Tasks, Events</li>
+		    			<li>Reporting</li>
+		    			<li>And More....</li>
+					</ul>
+			</div>
+		</div>
+		<p>Breeasy for Small Business is now available with a Risk Free 30-Day Free Trial - No Credit Card Required.</p>
+		<%= link_to "This will be a Link To the signup page with your referral code" %>
+		<h3>Free - Breeasy Billing, Invoicing, and Time Tracker App</h3>
+		<p>Sometimes, you just need to get an invoice or a bill immediately to your client, without any hassle. That's where our Free Billing, Invoicing, and Time Tracker App can help. Cloud based, free, and super simple, you can create invoices, track billable hours, record payments and keep track of your cash.</p>
 	<div class="yui-g">
-		<p><em>Enter some header copy</em>
-		<h1><%= @affiliate.content.header_1 %></h1>
-		<p>Introductory Copy Goes here - who you are, why are you selling breeasy products etc.</p>
-		<p>Blurb about breeasy - </p>
-	    <div class="yui-u first">
-		<p>Products</p>
+		<div class="yui-u first">
+			<ul class="features">	
+			<li>Create and Email Invoices on the Fly</li>
+			<li>Manage Accounts Receivable</li
+			</ul>
 		</div>
 		<div class="yui-u">
-			Signup form for products - trial, etc.
+				<ul class="features">
+					<li>Accounts Receivable Aging</li>
+					<li>Past Due Reports</li>
+					<li>New! Track and Invoice Billable Hours</li>
+				</ul>
 		</div>
 	</div>
-	
-	<div class="yui-g">
-		<h1>Sub Affiliate Sales Rep Section</h1>
-		<p>Introductory Copy Goes here - who you are, why are you selling breeasy products etc.</p>
-		<p>Blurb about breeasy - </p>
-	    <div class="yui-u first">
-		<p>Affiliate Table</p>
-		</div>
-		<div class="yui-u">
-			sub affiliate signup
-		</div>
-	</div>
+	<%= link_to "This will be a Link To the signup page with your referral code" %>
+		<h3>Free - InstaInvoice- Mobile billing and Invoicing</h3>
+		<p>A mobile invoicing app designed for consultants, freelancers, and part-timers on the go, InstaInvoice synchs with the Breeasy Billing, Invoicing and Time Tracker App to give you the ability to Invoice wherever and whenever you need.</p>	
+		<%= link_to "This will be a Link To the signup page with your referral code" %><br>
+		<br>
+	<%= f.hidden_field :user_id, :value => @affiliate.id %>
+	<%= f.check_box :active %> Activate and make this page public?<br>
+	<%= f.submit "Add Content" %>
+<% end %>
+
 </div>
+
+
