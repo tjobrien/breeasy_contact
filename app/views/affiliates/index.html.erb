@@ -125,7 +125,7 @@
 			<p>Breeasy for Small Business Account is active.</p>
 			<p>Your Username:  <%= current_user.breeasy_username %></p>
 			<% else %>
-			<p><%= link_to "Get Your Account Now", "http://app.breeasy.com/master-affiliate?affiliate_code=#{current_user.affiliate_detail.affiliate_code}" %></p>
+			<p><%= link_to "Get Your Account Now", "http://app.breeasy.com/master-affiliate?affiliate_code=#{current_user.affiliate_detail.affiliate_code}&email_address=#{current_user.email}" %></p>
 			
 			<% end %>
 
