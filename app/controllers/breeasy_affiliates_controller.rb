@@ -21,7 +21,7 @@ class BreeasyAffiliatesController < ApplicationController
   
   def sample
     #1 in production
-     @affiliate = User.find(2)
+     @affiliate = User.find(1)
   end
   def preview
     @affiliate = User.find(current_user.id)

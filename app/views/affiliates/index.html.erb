@@ -2,7 +2,7 @@
 		<div class="breadcrumbs"><a href="http://affiliate.breeasy.com">Breeasy Affiliate Programs</a> > Dashboard</div>
 		
 		<div class="yui-g">
-			<h1>Welcome to the Breeasy Affiliate Program<%= ", #{current_user.affiliate_detail.first_name}" unless current_user.affiliate_detail.nil? %></h1>
+			<h1>Welcome to the Breeasy Affiliate Program Dashboard<%= ", #{current_user.affiliate_detail.first_name}" unless current_user.affiliate_detail.nil? %></h1>
 		    <div class="yui-u first">
 			<% if !current_user.affiliate_detail.accepted_terms %>
 				<p>Oops!  You have not accepted the Breeasy Affiliate Program Terms and Conditions.  <%= link_to "Review and Accept Terms now.", edit_user_affiliate_path(current_user.id, current_user.affiliate_detail) %></p>
@@ -39,12 +39,7 @@
 					<% end %>
 				</tbody>
 			</table>
-			<% if current_user.master %>
-				<h2>Sub-Affiliate and Sales Rep Sign-up Page</h2>
-				<%= link_to "Add Sub-Affiliates and Sales Reps", sub_affiliate_path(current_user.id)  %>
-			<% end %>
-			<h2>Mobile Affiliate Management</h2>
-			<p><%= link_to "Signup customers wherever you are", "http://affiliate.breeasy.com/mobile/index.html" %></p>
+			
 			
 			</div>
 		    <div class="yui-u">
@@ -52,7 +47,7 @@
 			<table>
 				<thead><tr><th>user email</th><th>App</th><th>Plan</th><th>Date</th></tr></thead>
 				<% current_user.get_bfsb_referrals.each do |r| %>
-					<tr><td><%= r['user']['email'] %></td><td>BFSB</td><td>Get Plan ID</td><td><%= r['user']['created_at'] %></td></tr>
+					<tr><td><%= r['user']['email'] %></td><td>BFSB*</td><td>Get Plan ID</td><td><%= r['user']['created_at'] %></td></tr>
 				<% end %>
 				<% current_user.get_breeasy_billing_referrals.each do |r| %>
 					<tr><td><%= r['email'] %></td><td><%= r['source'] %></td><td>Free App</td><td><%= r['created_at'] %></td></tr>
@@ -60,14 +55,13 @@
 
 				
 			</table>
-			<h2>Recent Paid Subscriptions</h2>
-			<table>
-				<thead><th>App</th><th>Plan</th><th>Date</th><th>email</th></thead>
-			</table>
-			<h2>Earnings</h2>
-			<table>
-				<thead><th>This Week</th><th>This Month</th><th>This Year</th><th</thead>
-			</table>
+			*Breeasy for Small Business
+			<% if current_user.master %>
+				<h2>Sub-Affiliate and Sales Rep Sign-up Page</h2>
+				<%= link_to "Add Sub-Affiliates and Sales Reps", sub_affiliate_path(current_user.id)  %>
+			<% end %>
+			<h2>Mobile Affiliate Management</h2>
+			<p><%= link_to "Signup customers wherever you are", "http://affiliate.breeasy.com/mobile/index.html" %></p>
 
 			</div>
 			
